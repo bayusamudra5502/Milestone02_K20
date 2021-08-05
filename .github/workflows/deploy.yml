@@ -1,8 +1,9 @@
 name: Deploy Tugas Milestone
 
 on:
-  push:
+  create:
     tags:
+      - v*
 
 jobs:
   deploy:
@@ -15,3 +16,4 @@ jobs:
           server: files.000webhost.com
           username: dekatin
           password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./public-html
