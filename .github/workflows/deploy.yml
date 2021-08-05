@@ -1,0 +1,17 @@
+name: Deploy Tugas Milestone
+
+on:
+  push:
+    tags:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upload ke Hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: files.000webhost.com
+          username: dekatin
+          password: ${{ secrets.FTP_PASSWORD }}
