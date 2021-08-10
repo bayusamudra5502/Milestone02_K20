@@ -1,4 +1,5 @@
 * {font-family: -apple-system, Roboto, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+html {zoom: 0.8;}
 .header {
     width: 100%;
     height: 87px;
@@ -14,25 +15,17 @@
 .mini-icon {
     float:right;
     margin-right:32px;}
-.custom-row-body {
-    width: 100%;
-    height: 500px;
-}
+
 .text-Friends {
     margin-top: 20px;
-    margin-bottom: 8px;
-    margin-left: 24px;
+    margin-bottom: 10px;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     color: black;
 }
-.middle {height: 200px; width: 100%;}
-.custom-row-body-r1 {
-    width: 100%;
-    height: 100%;
-}
+.middle {width: 100%;}
 .rectangle-Add-Feeds {
     position: relative;
     margin-top: 20px;
@@ -40,7 +33,18 @@
     width: 207px;
     background: #0099BE;
     border-radius: 18px;
+    cursor: pointer;
 }
+.rectangle-Home, .rectangle-Find, .rectangle-Games, .rectangle-Community, .rectangle-Trending {
+    position: relative;
+    margin-top: 20px;
+    height: 44px;
+    width: 207px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+
 .text-Add-Feeds {
     color: white;
     position: absolute;
@@ -52,7 +56,19 @@
     font-size: 24px;
     line-height: 28px;
 }
-.icon-Add-Feeds {
+.text-Home, .text-Find, .text-Games, .text-Community {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 61px;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.icon-Add-Feeds, .icon-Home, .icon-Find, .icon-Games, .icon-Community {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -61,3 +77,210 @@
 .custom-row-left-r1 {
     height: 300px;
 }
+
+.rectangle-TrendingBox {
+    width: 238px;
+    height: 475px;
+    margin-top: 24px;
+    border-radius: 22px;
+}
+
+.text-Trending {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 18px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1E1F20;
+}
+.line-left {
+        margin-left: 13px;
+        width: 206px;
+        height: 0px;
+        border: 1px solid #AEAEAE;
+    }
+.rectangle-Trend1, .rectangle-Trend2, .rectangle-Trend3, .rectangle-Trend4, .rectangle-Trend5, .rectangle-Trend6, .rectangle-Trend7, .rectangle-Trend8 {
+    position: relative;
+    margin-left: 13px;
+    margin-top: 17px;
+    width: 206px;
+    height: 29px;
+    background: #FAFAFA;
+    border-radius: 22px;
+
+}
+.text-Trends1, .text-Trends2, .text-Trends3, .text-Trends4, .text-Trends5, .text-Trends6, .text-Trends7, .text-Trends8 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 11px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+
+color: #000000;
+
+}
+
+.custom-search {
+    width: 100%;
+    padding-left: 50px;
+    position: relative;
+    height: 38px;
+    
+}
+.custom-row-middle {
+    padding: 50px;
+}
+.icon-search {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 18px;
+}
+.search-box {
+    position: relative;
+    margin-top: 14px;
+    height: 38px;
+    width: 100%;
+    background-color: blue;
+}
+.rectangle-friendlist1 {
+    position: relative;
+    width: 100%;
+    height: 69px;
+    background: white;
+    border-radius: 26px;
+/* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 5px 0px;
+}
+
+.friendlist-profile1 {
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    left: 30px;
+    top: 9px;
+    background: url(assets/profile_dummy1.png);
+    border-radius: 50px;
+    cursor:pointer;
+}
+.text-friend1 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 103px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+/* identical to box height */
+    color: #000000;
+    cursor: pointer;
+}
+.icon-DM1 {
+    position: absolute;
+    right: 52px;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor:pointer;
+
+}
+.custom-row-right {
+    position: relative;
+    padding: 29px;
+    padding-top: 25px;
+}
+.rectangle-right {
+    position: absolute;
+    height: 606px;
+    width: 240px;
+    background: white;
+    border-radius: 22px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 19px;
+}
+.text-recommended {
+    position: relative;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000; 
+}
+.line-right {
+    width: 208px;
+    height: 0px;
+    border: 1px solid #AEAEAE;
+    margin-bottom: 30px;
+}
+.rectangle-addfriend1 {
+    position: relative;
+    width: 100%;
+    height: 39px;
+    background: #FAFAFA;
+    border-radius: 9px;
+    margin-bottom: 13px;
+}
+.addfriend-profile1 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 19px;
+    top: 4px;
+    background: url(assets/profile_dummy1.png);
+    border-radius: 50px;
+    background-size:cover;
+}
+.icon-addfriend1 {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 11px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.text-addfriend1 {
+    position: absolute;
+    left: 57px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.text-ShowMore {
+    text-align:right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+/* identical to box height */
+    color: #0099BE;
+
+}
+.text-community-right {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 17px;
+    margin-bottom: 13px;
+
+}
+
+
