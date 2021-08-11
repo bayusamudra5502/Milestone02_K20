@@ -1,0 +1,252 @@
+* {font-family: -apple-system, Roboto, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+html {zoom: 0.8;}
+
+/* Header*/
+.header {
+    width: 100%;
+    height: 87px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 22.3363px 24px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
+}
+.custom-row-header {
+    width: 100%;
+    height: 87px;
+}
+.logo {
+    margin-top: 32px;
+    margin-left: 32px;
+}
+
+.mini-icon {
+    float:right;
+    margin-right:32px;
+    margin-top: 32px;
+}
+
+/* Main*/
+.main{
+    width: 100%;
+}
+
+/* Nav Left*/
+.rectangle-Add-Feeds {
+    position: relative;
+    margin-top: 20px;
+    height: 44px;
+    width: 207px;
+    background: #0099BE;
+    border-radius: 18px;
+    cursor: pointer;
+}
+.rectangle-Home, .rectangle-Find, .rectangle-Games, .rectangle-Community, .rectangle-Trending {
+    position: relative;
+    margin-top: 20px;
+    height: 44px;
+    width: 207px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.text-Add-Feeds {
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    margin-left: 60px;
+}
+.text-Home, .text-Find, .text-Games, .text-Community {
+    color: black;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    margin-left: 60px;
+}
+
+.icon-Add-Feeds, .icon-Home, .icon-Find, .icon-Games, .icon-Community {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-left: 16px;
+}
+
+.rectangle-TrendingBox {
+    width: 238px;
+    height: 475px;
+    margin-top: 24px;
+    border-radius: 22px;
+    background-color: #FFFFFF;
+}
+
+.text-Trending {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1E1F20;
+    margin-left: 20px;
+}
+
+.line-left {
+    margin-left: 13px;
+    width: 206px;
+    height: 0px;
+    border: 1px solid #AEAEAE;
+}
+
+.rectangle-Trend1, .rectangle-Trend2, .rectangle-Trend3, .rectangle-Trend4, .rectangle-Trend5, .rectangle-Trend6, .rectangle-Trend7, .rectangle-Trend8 {
+    position: relative;
+    margin-left: 13px;
+    margin-top: 17px;
+    width: 206px;
+    height: 29px;
+    background: #FAFAFA;
+    border-radius: 22px;
+
+}
+.text-Trends1, .text-Trends2, .text-Trends3, .text-Trends4, .text-Trends5, .text-Trends6, .text-Trends7, .text-Trends8 {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.homescreen, .blendbox {
+    width: 104%;
+    margin-left:-2%;
+    background-blend-mode: darken;
+}
+
+.foto-profile{
+    position: relative;
+    transform: translate(0, -75%);
+}
+
+.edit{
+    float:right;
+    margin-top: -42%;
+    position: relative;
+}
+
+.blendbox{
+    margin-top: -45.4%;
+    margin-left: -2%;
+}
+.text-nama {
+    margin-top: -5%;
+    transform: translate(0, -100%);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1E1F20;
+    text-align: center;
+}
+
+/* Recomended */
+.custom-row-right {
+    position: relative;
+    padding: 29px;
+    padding-top: 25px;
+}
+.rectangle-right {
+    position: absolute;
+    height: 606px;
+    width: 240px;
+    background: white;
+    border-radius: 22px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 19px;
+}
+.text-recommended {
+    position: relative;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000; 
+}
+.line-right {
+    width: 208px;
+    height: 0px;
+    border: 1px solid #AEAEAE;
+    margin-bottom: 30px;
+}
+.rectangle-addfriend1 {
+    position: relative;
+    width: 100%;
+    height: 39px;
+    background: #FAFAFA;
+    border-radius: 9px;
+    margin-bottom: 13px;
+}
+.addfriend-profile1 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 19px;
+    top: 4px;
+    background: url(assets/profile_dummy1.png);
+    border-radius: 50px;
+    background-size:cover;
+}
+.icon-addfriend1 {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.text-addfriend1 {
+    position: absolute;
+    left: 57px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.text-ShowMore {
+    text-align:right;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+/* identical to box height */
+    color: #0099BE;
+
+}
+.text-community-right {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 17px;
+    margin-bottom: 13px;
+
+}
