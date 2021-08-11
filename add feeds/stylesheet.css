@@ -1,0 +1,74 @@
+h2 {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto;
+    padding-top: 10px;
+}
+
+.navbar-brand1 {
+    left: 50px;
+    position: absolute;
+}
+
+.navbar-brand2 {
+    right: 50px;
+    position: absolute;
+}
+
+.navbar-brand1:hover {
+    background-color:whitesmoke;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.navbar-brand2:hover {
+    background-color:whitesmoke;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.text-box {
+    margin: 10px 50px;
+    background-color:#F1F1F1;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.add-location {
+    text-align:right;
+    margin: 0px 20px;
+    padding-top: 25px;
+    font-family: Roboto;
+    width:20%;
+    float: left;
+}
+
+.form-control {
+    margin: 20px 20px;
+    float: left;
+    width: 50%;
+}
+
+.form-control1 {
+    width: 100%;
+    right: 100px;
+    left: 100px;
+    border:gray;
+    background-color: whitesmoke;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.form-control2 {
+    left: 100px;
+    margin-left: 50px;
+    padding-top: 10px;
+}
+
+.label-input-file {
+    left: 150px;
+    margin-left: 75px;
+    padding-top: 10px;
+}
