@@ -13,5 +13,5 @@ jobs:
           server: files.000webhost.com
           username: dekatin
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./src/
+          local-dir: ./src/dist.
           server-dir: ./public_html/
