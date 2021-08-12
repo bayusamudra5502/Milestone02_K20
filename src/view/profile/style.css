@@ -9,6 +9,7 @@ html {zoom: 0.8;}
     top: 0px;
     background: #FFFFFF;
     box-shadow: 0px 22.3363px 24px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
+    position: sticky;
 }
 .custom-row-header {
     width: 100%;
@@ -31,6 +32,11 @@ html {zoom: 0.8;}
 }
 
 /* Nav Left*/
+.nav-left-container {
+    position:sticky;
+    top: 105px;
+}
+
 .rectangle-Add-Feeds {
     position: relative;
     margin-top: 20px;
@@ -146,6 +152,12 @@ html {zoom: 0.8;}
     position: relative;
 }
 
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .blendbox{
     margin-top: -45.4%;
     margin-left: -2%;
@@ -161,14 +173,64 @@ html {zoom: 0.8;}
     text-align: center;
 }
 
+.sosmed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(0, -50%);
+}
+
+.facebook, .instagram, .linkedin, .youtube, .snapchat {
+    margin: 5px;
+}
+
+.bio-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.birthdate {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+h4 {
+    transform: translate(0, 40%);
+}
+
+.photosvideos-container {
+    padding-left: 15px;
+    padding-right: 15px;   
+}
+
+.media-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media {
+    margin: 20px;
+    width: 150px;
+}
+
+.showmore-media {
+    text-align: center;
+    margin: 20px;
+    transform: translate(0, -50%);
+    color: #0099BE;
+    font-weight: bold;
+}
+
 /* Recomended */
 .custom-row-right {
-    position: relative;
+    position: sticky;
+    top: 105px;
     padding: 29px;
     padding-top: 25px;
 }
 .rectangle-right {
-    position: absolute;
     height: 606px;
     width: 240px;
     background: white;
