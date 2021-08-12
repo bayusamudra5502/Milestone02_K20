@@ -11,6 +11,7 @@ html {zoom: 0.8;}
     box-shadow: 0px 22.3363px 24px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
     position: sticky;
 }
+
 .custom-row-header {
     width: 100%;
     height: 87px;
@@ -46,6 +47,11 @@ html {zoom: 0.8;}
     border-radius: 18px;
     cursor: pointer;
 }
+
+.rectangle-Add-Feeds:hover{
+    background-color:#097893;
+}
+
 .rectangle-Home, .rectangle-Find, .rectangle-Games, .rectangle-Community, .rectangle-Trending {
     position: relative;
     margin-top: 20px;
@@ -135,6 +141,8 @@ html {zoom: 0.8;}
     margin-left: 10px;
 }
 
+/*Main*/
+
 .homescreen, .blendbox {
     width: 104%;
     margin-left:-2%;
@@ -142,8 +150,8 @@ html {zoom: 0.8;}
 }
 
 .foto-profile{
-    position: relative;
-    transform: translate(0, -75%);
+    position: static;
+    margin-top: -75px;
 }
 
 .edit{
@@ -163,9 +171,9 @@ html {zoom: 0.8;}
     margin-left: -2%;
 }
 .text-nama {
-    margin-top: -5%;
-    transform: translate(0, -100%);
+    position: static;
     font-style: normal;
+    margin:10px;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
@@ -177,12 +185,38 @@ html {zoom: 0.8;}
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translate(0, -50%);
+    margin:10px;
 }
 
 .facebook, .instagram, .linkedin, .youtube, .snapchat {
     margin: 5px;
 }
+
+.dm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0099BE;
+    color: white ;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 15px;
+    height: 41px;
+}
+
+.dm:hover{
+    color:white;
+    background-color:#097893;
+}
+
+.dm-logo, .dm-teks {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-40%);
+}
+
 
 .bio-container {
     padding-left: 15px;
@@ -196,7 +230,7 @@ html {zoom: 0.8;}
 }
 
 h4 {
-    transform: translate(0, 40%);
+    padding-top: 15px;
 }
 
 .photosvideos-container {
@@ -214,6 +248,8 @@ h4 {
     margin: 20px;
     width: 150px;
 }
+
+
 
 .showmore-media {
     text-align: center;
@@ -291,16 +327,16 @@ h4 {
     color: #000000;
 }
 
-.text-ShowMore {
-    text-align:right;
+.text-ShowMore a{
+    float: right;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-/* identical to box height */
     color: #0099BE;
-
+    text-decoration: none;
 }
+
 .text-community-right {
     font-style: normal;
     font-weight: bold;
@@ -308,7 +344,7 @@ h4 {
     line-height: 14px;
     /* identical to box height */
     color: #000000;
-    margin-top: 17px;
+    margin-top: 25px;
     margin-bottom: 13px;
 
 }
