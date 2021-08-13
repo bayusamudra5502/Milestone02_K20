@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -12,6 +12,7 @@ body {
   background: #FAFAFA;
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  padding: 0;
 }
 
 body a {
@@ -73,6 +74,19 @@ header {
   display: flex;
 }
 
+.col-mid, .col-right.container, .nav-left-container {
+  height: 100vh;
+}
+
+.col-mid::-webkit-scrollbar {
+  width: 4px;
+}
+
+.col-mid::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
+}
+
 .col-left {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -81,7 +95,6 @@ header {
 
 .col-left .nav-left-container {
   position: absolute;
-  height: 90vh;
   overflow-y: scroll;
   overflow-x: hidden;
   top: 112px;
@@ -126,8 +139,21 @@ header {
   margin-left: 60px;
 }
 
-.col-left .text-Home, .col-left .text-Find, .col-left .text-Games, .col-left .text-Community {
+.col-left .text-Find, .col-left .text-Games, .col-left .text-Community {
   color: black;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  margin-left: 60px;
+}
+
+.col-left .text-Home {
+  color: #0099be;
   position: absolute;
   top: 50%;
   -webkit-transform: translate(0, -50%);
@@ -211,7 +237,6 @@ header {
 
 .col-right .container {
   position: absolute;
-  height: 90vh;
   overflow-y: scroll;
   overflow-x: hidden;
   top: 90px;
@@ -274,6 +299,14 @@ header {
   color: #000000;
 }
 
+.col-right .plus-sign {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
 .col-right .text-ShowMore a {
   float: right;
   font-style: normal;
@@ -289,7 +322,6 @@ header {
   font-weight: bold;
   font-size: 12px;
   line-height: 14px;
-  /* identical to box height */
   color: #000000;
   margin-top: 25px;
   margin-bottom: 13px;
@@ -302,7 +334,6 @@ header {
   width: 658px;
   border-left: 1px solid #AEAEAE;
   border-right: 1px solid #AEAEAE;
-  height: 90vh;
   overflow-y: scroll;
 }
 
@@ -395,19 +426,10 @@ header {
   left: 75px;
 }
 
-.col-mid .photo_feed .container .post_capt {
+.col-mid .photo_feed .container .post-capt {
   position: relative;
   width: 84%;
-  height: 60px;
-  overflow-y: scroll;
   padding-left: 40px;
-}
-
-.col-mid .photo_feed .container .post_capt .capt-content {
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: justify;
 }
 
 .col-mid .photo_feed .container .post_hour {
@@ -420,9 +442,49 @@ header {
   padding-left: 40px;
 }
 
-.col-mid .photo_feed .container .post_hour hour.content {
+.col-mid .photo_feed .container .post_hour .hour-content {
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
+}
+
+.bottom_nav {
+  display: none;
+}
+
+@media screen and (max-width: 1237px) {
+  .col-right .container {
+    display: none;
+  }
+  .nav-left-container {
+    display: none;
+  }
+  .bottom_navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background: white;
+  }
+  .bottom_nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 21px;
+  }
+  .bottom_nav .kosong, .bottom_nav .community {
+    -webkit-box-flex: 10;
+        -ms-flex: 10;
+            flex: 10;
+  }
+  .bottom_nav .home, .bottom_nav .search, .bottom_nav .game, .bottom_nav .add-feeds {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 18%;
+            flex: 0 0 18%;
+  }
+  .col-mid {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 576;
+            flex: 0 0 576;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 *::-webkit-scrollbar {
-    width: 5px;
-  }
+    width: 0px;
+}
   
 *::-webkit-scrollbar-thumb {
     background-color:gray;
     border-radius: 20px;
 }
+
 body{
     background: #FAFAFA;
     font-family: 'Roboto', sans-serif;
@@ -20,6 +21,9 @@ body{
         list-style-type: none;
     }
     margin:0;
+    padding: 0;
+    
+
 }
 header{
     position:sticky;
@@ -58,11 +62,23 @@ header{
     //clear: both;
 }
 
+.col-mid, .col-right.container, .nav-left-container{
+    height:100vh;
+}
+
+.col-mid::-webkit-scrollbar {
+    width: 4px;
+}
+
+.col-mid::-webkit-scrollbar-thumb {
+    background-color:gray;
+    border-radius: 20px;
+}
+
 .col-left{
     flex:1;
     .nav-left-container {
         position:absolute;
-        height: 90vh;
         overflow-y: scroll;  
         overflow-x: hidden;
         top:112px;
@@ -100,9 +116,21 @@ header{
         font-size: 24px;
         line-height: 28px;
         margin-left: 60px;
-    }
-    .text-Home, .text-Find, .text-Games, .text-Community {
+    } 
+    .text-Find, .text-Games, .text-Community {
         color: black;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        margin-left: 60px;
+    }
+
+    .text-Home{
+        color: rgba(0, 153, 190, 1);
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);
@@ -179,7 +207,6 @@ header{
     flex:1;
     .container {
         position:absolute;
-        height: 90vh;
         overflow-y: scroll;  
         overflow-x: hidden;
         top:90px;
@@ -219,8 +246,6 @@ header{
     }
     .icon-addfriend1 {
         position: absolute;
-        // width: 24px;
-        // height: 24px;
         top: 50%;
         transform: translate(0, -50%);
     }
@@ -233,6 +258,13 @@ header{
         font-size: 12px;
         line-height: 14px;
         color: #000000;
+    }
+
+    .plus-sign{
+        position: absolute;
+        right:12px;
+        top: 50%;
+        transform: translate(0, -50%);
     }
     
     .text-ShowMore a{
@@ -250,7 +282,6 @@ header{
         font-weight: bold;
         font-size: 12px;
         line-height: 14px;
-        /* identical to box height */
         color: #000000;
         margin-top: 25px;
         margin-bottom: 13px;
@@ -262,7 +293,6 @@ header{
     width: 658px;
     border-left: 1px solid #AEAEAE;
     border-right: 1px solid #AEAEAE;
-    height: 90vh;
     overflow-y: scroll; 
     .midhead{
         font-style: normal;
@@ -319,13 +349,6 @@ header{
             .post_content{
                 position: relative;
                 text-align: center;
-                // width: 100%;
-                // height:max-content;
-                // .post-image{
-                //     position: absolute;
-                //     left: 50%;
-                //     transform: translate(-50%, 0);
-                // }
             }
             .post_icon{
                 position: relative;
@@ -344,30 +367,21 @@ header{
                     left: 75px;
                 }
             }
-            .post_capt{
+            .post-capt{
                 position:relative;
                 width: 84%;
-                height: 60px;
-                overflow-y: scroll;
+                //display: block;
                 padding-left: 40px;
-                .capt-content{
-                    //position: absolute;
-                    font-weight: 300;
-                    font-size: 14px;
-                    line-height: 16px;
-                    text-align: justify;
-                    //top : 50%;
-                    //transform: translate(0, -50%);
-                }
-                
+                // background: orange;
             }
+
             .post_hour{
                 position:relative;
                 width: 100%;
                 height: max-content;
                 padding-top: 10px;
                 padding-left: 40px;
-                hour.content{
+                .hour-content{
                     font-weight: normal;
                     font-size: 14px;
                     line-height: 16px;
@@ -377,22 +391,51 @@ header{
     }
 }
 
-// .bottom_nav{
-//     display: flex;
-//     .kosong, .community{
-//         flex:10;   
-//     }
-//     .home, .search, .game, .add-feeds{
-//         flex: 0 0 80px;
-//         background: white;
-//     }
+
+
+
+
+
+
+.bottom_nav{
+    display:none;
+}
+
+
+
+
+
+
+// .show-more{
+//     position: relative;
 // }
 
-// @media screen and (max-width: 658px){
-//     // .bottom_nav{
-//     //     display: none;
-//     // }
-//     body{
-//         background: yellow;
-//     }
-// }
+
+@media screen and (max-width: 1237px){
+    .col-right{
+        .container{
+            display:none;
+        }
+    }
+    .nav-left-container{
+        display:none;
+    }
+    .bottom_navbar{
+        position: sticky;
+        bottom:0;
+        background: white;
+    }
+    .bottom_nav{
+        display: flex;
+        padding-top:21px;
+        .kosong, .community{
+            flex:10;   
+        }
+        .home, .search, .game, .add-feeds{
+            flex: 0 0 18%;
+        }
+    }
+    .col-mid{
+        flex:0 0 576;
+    }
+}
