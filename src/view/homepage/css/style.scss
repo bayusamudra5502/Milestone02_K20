@@ -61,13 +61,17 @@ header{
 .col-left{
     flex:1;
     .nav-left-container {
-        position:sticky;
+        position:absolute;
+        height: 90vh;
+        overflow-y: scroll;  
+        overflow-x: hidden;
         top:112px;
-        margin-left:41%;
-        margin-right:44%;
-        transform: translate(-110%,0);
+        left:31%;
+        transform: translate(-140%,0);
     }
-    
+    .nav-left-container::-webkit-scrollbar {
+        width: 0;
+    }
     .rectangle-Add-Feeds {
         position: relative;
         margin-top: 20px;
@@ -140,7 +144,7 @@ header{
         margin-left: 13px;
         width: 206px;
         height: 0px;
-        border: 1px solid #AEAEAE;
+        border-top: 1px solid #AEAEAE;
     }
     
     .rectangle-Trend1, .rectangle-Trend2, .rectangle-Trend3, .rectangle-Trend4, .rectangle-Trend5, .rectangle-Trend6, .rectangle-Trend7, .rectangle-Trend8 {
@@ -164,16 +168,23 @@ header{
         color: #000000;
         text-decoration: none;
         margin-left: 10px;
+        &:hover{
+            color:#0099BE;
+        }
+        
     }
-
+    
 }
 .col-right{
     flex:1;
     .container {
-        position: sticky;
-        top: 89px;
-        padding: 29px;
-        padding-top: 25px;
+        position:absolute;
+        height: 90vh;
+        overflow-y: scroll;  
+        overflow-x: hidden;
+        top:90px;
+        right:31%;
+        transform: translate(140%,0);
     }
     .rectangle-right {
         height: 606px;
@@ -251,6 +262,8 @@ header{
     width: 658px;
     border-left: 1px solid #AEAEAE;
     border-right: 1px solid #AEAEAE;
+    height: 90vh;
+    overflow-y: scroll; 
     .midhead{
         font-style: normal;
         font-weight: bold;
