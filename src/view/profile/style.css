@@ -139,6 +139,9 @@
     color: #000000;
     text-decoration: none;
     margin-left: 10px;
+    :hover{
+        color: #097893;
+    }
 }
 
 /*Main*/

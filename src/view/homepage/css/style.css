@@ -80,13 +80,18 @@ header {
 }
 
 .col-left .nav-left-container {
-  position: -webkit-sticky;
-  position: sticky;
+  position: absolute;
+  height: 90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   top: 112px;
-  margin-left: 41%;
-  margin-right: 44%;
-  -webkit-transform: translate(-110%, 0);
-          transform: translate(-110%, 0);
+  left: 31%;
+  -webkit-transform: translate(-140%, 0);
+          transform: translate(-140%, 0);
+}
+
+.col-left .nav-left-container::-webkit-scrollbar {
+  width: 0;
 }
 
 .col-left .rectangle-Add-Feeds {
@@ -167,7 +172,7 @@ header {
   margin-left: 13px;
   width: 206px;
   height: 0px;
-  border: 1px solid #AEAEAE;
+  border-top: 1px solid #AEAEAE;
 }
 
 .col-left .rectangle-Trend1, .col-left .rectangle-Trend2, .col-left .rectangle-Trend3, .col-left .rectangle-Trend4, .col-left .rectangle-Trend5, .col-left .rectangle-Trend6, .col-left .rectangle-Trend7, .col-left .rectangle-Trend8 {
@@ -194,6 +199,10 @@ header {
   margin-left: 10px;
 }
 
+.col-left .text-Trends1:hover, .col-left .text-Trends2:hover, .col-left .text-Trends3:hover, .col-left .text-Trends4:hover, .col-left .text-Trends5:hover, .col-left .text-Trends6:hover, .col-left .text-Trends7:hover, .col-left .text-Trends8:hover {
+  color: #0099BE;
+}
+
 .col-right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -201,11 +210,14 @@ header {
 }
 
 .col-right .container {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 89px;
-  padding: 29px;
-  padding-top: 25px;
+  position: absolute;
+  height: 90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 90px;
+  right: 31%;
+  -webkit-transform: translate(140%, 0);
+          transform: translate(140%, 0);
 }
 
 .col-right .rectangle-right {
@@ -290,6 +302,8 @@ header {
   width: 658px;
   border-left: 1px solid #AEAEAE;
   border-right: 1px solid #AEAEAE;
+  height: 90vh;
+  overflow-y: scroll;
 }
 
 .col-mid .midhead {
