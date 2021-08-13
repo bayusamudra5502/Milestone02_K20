@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 function run_query($query)
 {
     global $conn;
-    $res = $conn->query(htmlspecialchars($query));
+    $res = $conn->query($query);
     $output = array();
 
     if ($res->num_rows > 0) {
