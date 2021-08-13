@@ -26,7 +26,7 @@ body{
 
 }
 header{
-    position:sticky;
+    //position:sticky;
     top:0px;
     z-index: 100;
     background: white;
@@ -372,6 +372,7 @@ header{
                 width: 84%;
                 //display: block;
                 padding-left: 40px;
+                text-align: justify;
                 // background: orange;
             }
 
@@ -385,6 +386,37 @@ header{
                     font-weight: normal;
                     font-size: 14px;
                     line-height: 16px;
+                }
+            }
+
+            .commentator {
+            position: relative;
+            width: 84%;
+            height: max-content;
+            margin-bottom: 13px;
+            display: flex;
+            padding-left: 38px;
+            margin-top: 10px;
+            margin-bottom:11px;
+                .commentator-pp {
+                    flex: 0 0 19px;
+                    border-radius: 60px;
+                }
+                .commentator-name {
+                    flex: auto;
+                    padding-left: 21px;
+                    padding-top:0.5em;
+                    padding-right: 20px;
+                    font-weight: 500;
+                    font-size: 15px;
+                    line-height: 18px;
+                    color: #000000;
+                    font-weight: bold;
+                    text-align: justify;
+                    .comment-text{
+                        font-weight: normal;
+                        
+                    }
                 }
             }
         }

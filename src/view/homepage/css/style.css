@@ -25,8 +25,6 @@ body ul {
 }
 
 header {
-  position: -webkit-sticky;
-  position: sticky;
   top: 0px;
   z-index: 100;
   background: white;
@@ -430,6 +428,7 @@ header {
   position: relative;
   width: 84%;
   padding-left: 40px;
+  text-align: justify;
 }
 
 .col-mid .photo_feed .container .post_hour {
@@ -446,6 +445,47 @@ header {
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
+}
+
+.col-mid .photo_feed .container .commentator {
+  position: relative;
+  width: 84%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-bottom: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 38px;
+  margin-top: 10px;
+  margin-bottom: 11px;
+}
+
+.col-mid .photo_feed .container .commentator .commentator-pp {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 19px;
+          flex: 0 0 19px;
+  border-radius: 60px;
+}
+
+.col-mid .photo_feed .container .commentator .commentator-name {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  padding-left: 21px;
+  padding-top: 0.5em;
+  padding-right: 20px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000000;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.col-mid .photo_feed .container .commentator .commentator-name .comment-text {
+  font-weight: normal;
 }
 
 .bottom_nav {
