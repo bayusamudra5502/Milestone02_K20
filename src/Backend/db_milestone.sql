@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 13, 2021 at 02:30 PM
+-- Generation Time: Aug 13, 2021 at 02:38 PM
 -- Server version: 10.3.31-MariaDB-0ubuntu0.20.04.1
 -- PHP Version: 8.0.9
 
@@ -36,15 +36,19 @@ CREATE TABLE `tb_akun` (
   `password` varchar(100) NOT NULL,
   `interest` varchar(50) NOT NULL,
   `education` varchar(100) DEFAULT NULL,
-  `bio` text DEFAULT NULL
+  `bio` text DEFAULT NULL,
+  `birthday` date NOT NULL,
+  `facebook_url` text NOT NULL,
+  `instagram_url` text NOT NULL,
+  `linkedin_url` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_akun`
 --
 
-INSERT INTO `tb_akun` (`nama`, `username`, `email`, `password`, `interest`, `education`, `bio`) VALUES
-('bayu', 'bayu', 'tes@example.com', '9999', 'programming', NULL, NULL);
+INSERT INTO `tb_akun` (`nama`, `username`, `email`, `password`, `interest`, `education`, `bio`, `birthday`, `facebook_url`, `instagram_url`, `linkedin_url`) VALUES
+('bayu', 'bayu', 'tes@example.com', '9999', 'programming', NULL, NULL, '0000-00-00', '', '', '');
 
 -- --------------------------------------------------------
 
