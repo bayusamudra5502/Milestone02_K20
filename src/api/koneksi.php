@@ -17,19 +17,28 @@ if ($conn->connect_error) {
     die($json);
 }
 
-function run_query($query)
+function run_query($query, $need_output = true)
 {
     global $conn;
     $res = $conn->query($query);
-    $output = array();
 
-    if ($res->num_rows > 0) {
-        while ($row = $res->fetch_assoc()) {
-            array_push($output, $row);
+    if ($need_output) {
+        $output = array();
+
+        if (($res->num_rows) > 0) {
+            while ($row = $res->fetch_assoc()) {
+                array_push($output, $row);
+            }
+        }
+
+        return $output;
+    } else {
+        if ($res) {
+            return true;
+        } else {
+            return false;
         }
     }
-
-    return $output;
 }
 
 function add_data($table, $data)
@@ -52,7 +61,7 @@ function add_data($table, $data)
     }
     $query[strlen($query) - 1] = ")";
 
-    run_query($query);
+    return run_query($query, false);
 }
 
 function delete_data($table, $criteria)
@@ -75,7 +84,9 @@ function delete_data($table, $criteria)
 
     $query = substr($query, 0, -5);
 
-    run_query($query);
+    run_query($query, false);
+
+    return true;
 }
 
 function update_data($table, $criteria, $data)
@@ -114,5 +125,7 @@ function update_data($table, $criteria, $data)
 
     $query = substr($query, 0, -5);
 
-    run_query($query);
+    run_query($query, false);
+
+    return true;
 }
