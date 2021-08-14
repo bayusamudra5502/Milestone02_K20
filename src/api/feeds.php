@@ -23,6 +23,8 @@ function add_comment($username, $post_id, $comment)
    * Menambahkan komentar
    * 
    * menghasilkan True bila berhasil
+   * 
+   * Format time: Y-m-d h:m:s
    */
 
   return true;

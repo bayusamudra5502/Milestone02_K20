@@ -12,7 +12,7 @@ function get_all_friends($username)
    * Keluaran merupakan array username yang meurpakan teman daro $username
    */
 
-  return array("Teman");
+  return array("Teman 1", "Teman 2");
 }
 
 function add_friend($username, $friend_username)
@@ -38,7 +38,7 @@ function friend_recomendations($username, $page)
    * offset pada database
    */
 
-  return array();
+  return array("A", "B");
 }
 
 header('Content-Type: application/json');

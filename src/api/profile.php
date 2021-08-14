@@ -32,7 +32,7 @@ function get_profile($username)
    * bila gagal, kembalikan nilai null;
    */
 
-  return array("Yay");
+  return array("username" => "Yay");
 }
 
 header('Content-Type: application/json');
