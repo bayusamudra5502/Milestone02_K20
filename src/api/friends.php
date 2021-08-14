@@ -38,7 +38,7 @@ function add_friend($username, $friend_username)
 function friend_recomendations($username)
 {   
     $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = $username);
-    $array_friends = run_query("SELECT userfriend FROM tb_friends ORDER BY $kesukaan OFFSET (0 ROWS) FETCH NEXT 5 ROWS ONLY WHERE username = $username");
+    $array_friends = run_query("SELECT userfriend FROM tb_friends ORDER BY '$kesukaan' OFFSET (0 ROWS) FETCH NEXT 5 ROWS ONLY WHERE username = '$username'");
     return $array_friends
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
