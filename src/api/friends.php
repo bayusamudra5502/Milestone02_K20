@@ -25,7 +25,7 @@ function add_friend($username, $friend_username)
     }else{
         $bool = False;
     }
-    return True
+    return True;
   /**
    * Fungsi ini akan menjadikan $friends_username merupakan teman dari $username.
    * Prosesnya cukup tambahkan data pada tb_friends dengan kolom username bernilai
@@ -37,9 +37,16 @@ function add_friend($username, $friend_username)
 
 function friend_recomendations($username)
 {   
-    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = $username);
-    $array_friends = run_query("SELECT userfriend FROM tb_friends ORDER BY '$kesukaan' OFFSET (0 ROWS) FETCH NEXT 5 ROWS ONLY WHERE username = '$username'");
-    return $array_friends
+    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
+    $array_friends = run_query("SELECT userfriend FROM tb_friends username = '$username'");
+    $kesukaan_teman = run_query("SELECT interest FROM tb_accounts WHERE username = '$array_friends'");
+    
+    for ($i == 1; $i <= count($array_friends); $i++){
+        if $kesukaan_teman[i] != $kesukaan{
+            unset($array_friends);
+        }   
+    }
+    return $array_friends;
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
    * minat yang sama.
