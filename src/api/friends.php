@@ -6,10 +6,12 @@
 
 function get_all_friends($username)
 {
+    $array = run_query("SELECT userfriend FROM tb_friends WHERE username = '$username'");
+
   /**
    * Fungsi ini akan mengambil semua teman dari $username.
    *
-   * Keluaran merupakan array username yang meurpakan teman daro $username
+   * Keluaran merupakan array username yang meurpakan teman dari $username
    */
 
   return array("Teman 1", "Teman 2");
@@ -17,6 +19,12 @@ function get_all_friends($username)
 
 function add_friend($username, $friend_username)
 {
+    $insert = run_query("INSERT $friend_username INTO tb_friends VALUES ('$userfriend') WHERE username = '$username'");
+    if($insert){
+        return true;
+    }else{
+        return False;
+    }
   /**
    * Fungsi ini akan menjadikan $friends_username merupakan teman dari $username.
    * Prosesnya cukup tambahkan data pada tb_friends dengan kolom username bernilai
@@ -24,12 +32,28 @@ function add_friend($username, $friend_username)
    * 
    * Kembalikan nilai True bila proses berhasil. Bila gagal keluarkan false
    */
-
-  return true;
 }
 
 function friend_recomendations($username, $page)
-{
+{   
+    $bantu = 0
+    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
+    $kesukaan_teman = run_query("SELECT interest FROM tb_accounts WHERE userfriend = '$page'");
+    for ($i=0; $i <=4; $i++) {
+        if $kesukaan == $kesukaan_teman[i]{
+            $bantu = $bantu + 1;
+        } else{
+            $bantu = $bantu + 0;
+        }
+    }
+    if $bantu == 5{
+        $bantu = 0;
+        return array("A", "B");
+    }
+    else{
+        $bantu = 0;
+        return array("A", "B");
+    }
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
    * minat yang sama.
@@ -37,8 +61,6 @@ function friend_recomendations($username, $page)
    * Keluarkan hanya maksimal 5 username pada fungsi ini. Gunakan $page untuk mengatue
    * offset pada database
    */
-
-  return array("A", "B");
 }
 
 header('Content-Type: application/json');
