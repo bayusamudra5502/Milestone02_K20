@@ -1,4 +1,5 @@
 <?php
+include_once "koneksi.php";
 
 /**
  * Feeds
@@ -6,6 +7,12 @@
 
 function add_feed($username, $data)
 {
+  $post = htmlspecialchars($data['posts'], ENT_QUOTES) ; 
+  $media = htmlspecialchars ($data['media']) ; 
+  $current_time = date("Y-m-d h:i:s") ;
+  return add_data('tb_posts', array('username' => $username, 'posts' => $post, 'media' => $media, 'timepublish' => $current_time, 'timeupdated' => $current_time)) ;
+  
+  
   /**
    * Menambahkan feeds ada database.
    * Parameter $data berisi keys:
@@ -13,8 +20,6 @@ function add_feed($username, $data)
    * 
    * Menghasilkan true bila berhasil ditambahkan
    */
-
-  return true;
 }
 
 function add_comment($username, $post_id, $comment)
@@ -32,17 +37,24 @@ function add_comment($username, $post_id, $comment)
 
 function add_like($username, $post_id)
 {
-  /**
+  $result = run_query("select username from tb_likes where username = '$username' and posts = $post_id")
+
+  if (count($result) > 0) {
+    return False
+  }
+  else {
+    return add_data('tb_likes', array('username' => $username, 'posts' => $post_id))
+  }
+    /**
    * Menambahkan like
    * 
    * Menghasilkan true bila berhasil
    */
-
-  return true;
 }
 
 function get_feeds($username, $page)
 {
+  $query = 
   /**
    * Menghasilkan 5 feeds yang terbaru dari username
    */
@@ -53,6 +65,9 @@ function get_feeds($username, $page)
 
 function get_comments($post_id)
 {
+  $query = "select * from tb_comments where postid = '$post_id"
+
+  $result = run_query($query)
   /**
    * Mendapatkan komentar berdasarkan id post
    * 
@@ -73,6 +88,7 @@ function get_like_count($post_id)
 
 function delete_like($username, $post_id)
 {
+  delete_data('tb_likes', array('username' => $username, 'posts' => $post_id))
   /**
    * Menghapus like.
    * 
