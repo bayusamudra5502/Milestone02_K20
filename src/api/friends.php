@@ -6,17 +6,26 @@
 
 function get_all_friends($username)
 {
+    $array = run_query("SELECT userfriend FROM tb_friends WHERE username = '$username'");
+
   /**
    * Fungsi ini akan mengambil semua teman dari $username.
    *
-   * Keluaran merupakan array username yang meurpakan teman daro $username
+   * Keluaran merupakan array username yang meurpakan teman dari $username
    */
 
-  return array("Teman 1", "Teman 2");
+  return $array;
 }
 
 function add_friend($username, $friend_username)
 {
+    $insert = run_query("INSERT '$friend_username' INTO tb_friends VALUES ('$userfriend') WHERE username = '$username'");
+    if($insert){
+        $bool = True;
+    }else{
+        $bool = False;
+    }
+    return True
   /**
    * Fungsi ini akan menjadikan $friends_username merupakan teman dari $username.
    * Prosesnya cukup tambahkan data pada tb_friends dengan kolom username bernilai
@@ -24,12 +33,13 @@ function add_friend($username, $friend_username)
    * 
    * Kembalikan nilai True bila proses berhasil. Bila gagal keluarkan false
    */
-
-  return true;
 }
 
-function friend_recomendations($username, $page)
-{
+function friend_recomendations($username)
+{   
+    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = $username);
+    $array_friends = run_query("SELECT userfriend FROM tb_friends ORDER BY '$kesukaan' OFFSET (0 ROWS) FETCH NEXT 5 ROWS ONLY WHERE username = '$username'");
+    return $array_friends
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
    * minat yang sama.
@@ -37,8 +47,6 @@ function friend_recomendations($username, $page)
    * Keluarkan hanya maksimal 5 username pada fungsi ini. Gunakan $page untuk mengatue
    * offset pada database
    */
-
-  return array("A", "B");
 }
 
 header('Access-Control-Allow-Origin: *', false);
