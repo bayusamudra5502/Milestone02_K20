@@ -21,10 +21,11 @@ function add_friend($username, $friend_username)
 {
     $insert = run_query("INSERT $friend_username INTO tb_friends VALUES ('$userfriend') WHERE username = '$username'");
     if($insert){
-        return true;
+        $bool = True;
     }else{
-        return False;
+        $bool = False;
     }
+    return True
   /**
    * Fungsi ini akan menjadikan $friends_username merupakan teman dari $username.
    * Prosesnya cukup tambahkan data pada tb_friends dengan kolom username bernilai
