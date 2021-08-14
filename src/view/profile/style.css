@@ -1,5 +1,5 @@
 * {font-family: -apple-system, Roboto, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-/* html {zoom: 0.8;} */
+html {zoom: 0.8;}
 
 /* Header*/
 .header {
@@ -10,6 +10,7 @@
     background: #FFFFFF;
     box-shadow: 0px 22.3363px 24px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725);
     position: sticky;
+    z-index: 2;
 }
 
 .custom-row-header {
@@ -35,7 +36,7 @@
 /* Nav Left*/
 .nav-left-container {
     position:sticky;
-    top: 105px;
+    top:105px;
 }
 
 .rectangle-Add-Feeds {
@@ -139,9 +140,6 @@
     color: #000000;
     text-decoration: none;
     margin-left: 10px;
-    :hover{
-        color: #097893;
-    }
 }
 
 /*Main*/
@@ -254,12 +252,15 @@ h4 {
 
 
 
-.showmore-media {
-    text-align: center;
+.showmore-media a{
+    justify-content: center;
+    display: flex;
+    align-items: center;
     margin: 20px;
     transform: translate(0, -50%);
-    color: #0099BE;
     font-weight: bold;
+    color: #0099BE;
+    text-decoration: none;
 }
 
 /* Recomended */
@@ -292,6 +293,14 @@ h4 {
     border: 1px solid #AEAEAE;
     margin-bottom: 30px;
 }
+
+.plus-sign {
+    float:right;
+    position: relative;
+    padding-right: 10px;
+    padding-top: 8px;
+}
+
 .rectangle-addfriend1 {
     position: relative;
     width: 100%;
@@ -306,16 +315,15 @@ h4 {
     height: 30px;
     left: 19px;
     top: 4px;
-    background: url(assets/profile_dummy1.png);
     border-radius: 50px;
     background-size:cover;
 }
 .icon-addfriend1 {
-    position: absolute;
+    position: absolute;;
     width: 24px;
     height: 24px;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate(50%, -50%);
 }
 .text-addfriend1 {
     position: absolute;
@@ -350,4 +358,49 @@ h4 {
     margin-top: 25px;
     margin-bottom: 13px;
 
+}
+@media screen and (min-width: 992px){
+    .bottom_navbar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .right {
+        display : none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .nav-left-container{
+        display: none;
+    }
+    .bottom_navbar {
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
+        background: white;
+      }
+      .bottom_nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding-top: 21px;
+        padding-bottom: 21px;
+      }
+      .bottom_nav .kosong, .bottom_nav .community {
+        -webkit-box-flex: 10;
+            -ms-flex: 10;
+                flex: 10;
+      }
+      .bottom_nav .home, .bottom_nav .search, .bottom_nav .game, .bottom_nav .add-feeds {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 18%;
+                flex: 0 0 18%;
+      }
+      .profile {
+          -webkit-box-flex: 0;
+            -ms-flex: 0 0 576;
+                flex: 0 0 576;          
+      }
 }
