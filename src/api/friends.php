@@ -14,12 +14,12 @@ function get_all_friends($username)
    * Keluaran merupakan array username yang meurpakan teman dari $username
    */
 
-  return array("Teman 1", "Teman 2");
+  return $array;
 }
 
 function add_friend($username, $friend_username)
 {
-    $insert = run_query("INSERT $friend_username INTO tb_friends VALUES ('$userfriend') WHERE username = '$username'");
+    $insert = run_query("INSERT '$friend_username' INTO tb_friends VALUES ('$userfriend') WHERE username = '$username'");
     if($insert){
         $bool = True;
     }else{
@@ -35,26 +35,11 @@ function add_friend($username, $friend_username)
    */
 }
 
-function friend_recomendations($username, $page)
+function friend_recomendations($username)
 {   
-    $bantu = 0
-    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
-    $kesukaan_teman = run_query("SELECT interest FROM tb_accounts WHERE userfriend = '$page'");
-    for ($i=0; $i <=4; $i++) {
-        if $kesukaan == $kesukaan_teman[i]{
-            $bantu = $bantu + 1;
-        } else{
-            $bantu = $bantu + 0;
-        }
-    }
-    if $bantu == 5{
-        $bantu = 0;
-        return array("A", "B");
-    }
-    else{
-        $bantu = 0;
-        return array("A", "B");
-    }
+    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = $username);
+    $array_friends = run_query("SELECT userfriend FROM tb_friends ORDER BY $kesukaan OFFSET (0 ROWS) FETCH NEXT 5 ROWS ONLY WHERE username = $username");
+    return $array_friends
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
    * minat yang sama.
