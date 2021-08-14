@@ -41,6 +41,7 @@ function friend_recomendations($username, $page)
   return array("A", "B");
 }
 
+header('Access-Control-Allow-Origin: *', false);
 header('Content-Type: application/json');
 $response;
 $username = $_GET["username"];

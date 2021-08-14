@@ -105,6 +105,8 @@ function logout(string $token)
   return true;
 }
 
+header('Access-Control-Allow-Origin: *', false);
+
 header('Content-Type: application/json');
 $response;
 

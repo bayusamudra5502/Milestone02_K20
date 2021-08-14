@@ -17,17 +17,17 @@ function edit_profile($username, $new_data)
    * instagramUrl, linkedinUrl, dan photo
    */
 
-   if ($username_exists = run_query("SELECT username FROM tb_accounts
+  if ($username_exists = run_query("SELECT username FROM tb_accounts
      WHERE EXISTS username=$username", false)) {
-     $res = false;
-   }
-   elseif (strlen($new_data["nama"]) > 50
-            || strlen($new_data["email"]) > 50
-            || strlen($new_data["interest"]) > 50
-            || strlen($new_data["education"]) > 100) {
     $res = false;
-   }
-   else {
+  } elseif (
+    strlen($new_data["nama"]) > 50
+    || strlen($new_data["email"]) > 50
+    || strlen($new_data["interest"]) > 50
+    || strlen($new_data["education"]) > 100
+  ) {
+    $res = false;
+  } else {
     $new_nama = $new_data['nama'];
     $new_email = $new_data['email'];
     $new_interest = $new_data['interest'];
@@ -52,8 +52,8 @@ function edit_profile($username, $new_data)
     WHERE username='$username'", false);
 
     $res = true;
-    }
-    return $res;
+  }
+  return $res;
 }
 
 function get_profile($username)
@@ -67,19 +67,20 @@ function get_profile($username)
    *
    * bila gagal, kembalikan nilai null;
    */
-   if ($username_exists = run_query("SELECT username FROM tb_accounts
-      WHERE EXISTS username=$username", false)){
-     $res = null;
-   }
-   else {
-     $res = run_query("SELECT nama, username, email
+  if ($username_exists = run_query("SELECT username FROM tb_accounts
+      WHERE EXISTS username=$username", false)) {
+    $res = null;
+  } else {
+    $res = run_query("SELECT nama, username, email
        , interest, education, bio, birthday, facebook_url, instagram_url
        , linkedin_url, photo FROM tb_accounts WHERE username='$username'");
-   }
-   return $res;
+  }
+  return $res;
 }
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *', false);
+
 $response;
 $username = $_GET["username"];
 

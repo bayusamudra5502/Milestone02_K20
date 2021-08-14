@@ -49,6 +49,7 @@ function handle_feeds_media_upload()
 }
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *', false);
 $response;
 $result = false;
 

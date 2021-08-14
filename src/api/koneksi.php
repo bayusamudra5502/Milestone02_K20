@@ -1,9 +1,8 @@
 <?php
 $hostname = 'localhost';
-$username = 'root';
-# $password = 'IrUzNkA!MOLRO_K5';
-$password = '' ;
-$dbname   = 'milestone02';
+$username = 'milestone';
+$password = 'IrUzNkA!MOLRO_K5';
+$dbname   = 'db_milestone';
 
 $conn = new mysqli($hostname, $username, $password, $dbname);
 

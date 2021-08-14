@@ -98,6 +98,7 @@ function delete_like($username, $post_id)
   return true;
 }
 
+header('Access-Control-Allow-Origin: *', false);
 header('Content-Type: application/json');
 $response;
 
