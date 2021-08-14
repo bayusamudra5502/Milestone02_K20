@@ -45,9 +45,9 @@ function friend_recomendations($username)
         if $kesukaan_teman[i] != $kesukaan{
             unset($array_friends[i);
         }
+    }
     for ($i == 0; $i <= 4; $i++){
         $friends_recomendation[i] = $array_friends[i];
-    }
     }
     return $friends_recomendation;
   /**
