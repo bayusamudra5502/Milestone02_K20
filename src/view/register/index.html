@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Login</title>
+  </head>
+  <body>
+    <form class="auth" action="/" method="POST">
+      <div class="mb-3">
+        <img src="logo.png" alt="Logo" />
+      </div>
+      <div class="mb-3 title">
+        <strong>Register Page</strong>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          placeholder="Input Name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          placeholder="Input Email"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="uname" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          id="uname"
+          placeholder="Input Username"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Input your password"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="verify" class="form-label">Verify Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="verify"
+          placeholder="Input your password"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="interest" class="form-label">Interest</label>
+        <select class="form-select" id="interest" name="interest">
+          <option selected disabled>Select Your Interest</option>
+          <option value="Olahraga">Olahraga</option>
+          <option value="Otomotif">Otomotif</option>
+          <option value="Kuliner">Kuliner</option>
+          <option value="Games">Games</option>
+          <option value="Musik">Musik</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="interest" class="form-label">Profile Picture</label>
+        <input class="form-control" type="file" name="profile" id="formFile" />
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-dark">Login</button>
+        <a class="btn btn-link mx-1" href="../login">Sudah Punya Akun</a>
+      </div>
+    </form>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
