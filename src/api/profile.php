@@ -72,7 +72,7 @@ function get_profile($username)
      $res = null;
    }
    else {
-     $res = run_query("SELECT nama, username, email, password
+     $res = run_query("SELECT nama, username, email
        , interest, education, bio, birthday, facebook_url, instagram_url
        , linkedin_url, photo FROM tb_accounts WHERE username='$username'");
    }
