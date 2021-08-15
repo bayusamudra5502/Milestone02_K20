@@ -1,11 +1,16 @@
 <template>
   <div class="body">
-    <form class="auth">
+    <form class="auth" @submit.prevent="onSubmit">
       <div class="mb-3">
         <img src="./assets/logo.png" alt="Logo" />
       </div>
       <div class="mb-3 title">
         <strong>Login Page</strong>
+      </div>
+      <div class="mb-3">
+        <div class="alert alert-danger" role="alert" v-if="isError">
+          Pasangan username dan Password tidak ditemukan
+        </div>
       </div>
       <div class="mb-3">
         <label for="uname" class="form-label">Username</label>
@@ -15,6 +20,7 @@
           name="username"
           id="uname"
           placeholder="Input Username"
+          v-model="input.username"
         />
       </div>
       <div class="mb-3">
@@ -24,6 +30,7 @@
           class="form-control"
           id="password"
           placeholder="Input your password"
+          v-model="input.password"
         />
       </div>
       <div class="mb-3">
@@ -37,7 +44,55 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import { API_URL } from "../../constant";
+import { mapActions } from "vuex";
+
+export default {
+  data: () => ({
+    isError: false,
+    input: {
+      username: "",
+      password: "",
+    },
+  }),
+  methods: {
+    ...mapActions({
+      setUser: "auth/setUser",
+    }),
+    async onSubmit() {
+      try {
+        const { data } = await axios.post(`${API_URL}/auth.php`, this.input, {
+          params: {
+            action: "login",
+          },
+        });
+
+        if (data.status === "success") {
+          const {
+            data: {
+              data: [profile],
+            },
+          } = await axios.get(`${API_URL}/profile.php`, {
+            params: {
+              username: this.input.username,
+            },
+          });
+          const token = data.data.token;
+
+          this.setUser({ token, data: profile });
+          localStorage.setItem("login", token);
+          this.$router.push("/");
+        } else {
+          this.isError = true;
+        }
+      } catch (err) {
+        console.dir(err);
+        this.isError = true;
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
