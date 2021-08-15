@@ -12,13 +12,13 @@
             />
           </div>
           <div class="col-9">
-            <a href="../friends-page/friends.html">
+            <router-link to="/friends">
               <img
                 src="./assets/Users.png"
                 class="img-fluid mini-icon"
                 alt="Image"
               />
-            </a>
+            </router-link>
             <a
               ><img
                 src="./assets/Chat.png"
@@ -26,13 +26,13 @@
                 alt="Image"
               />
             </a>
-            <a href="../profile/">
+            <router-link to="/profile">
               <img
                 src="./assets/Profpic.png"
                 class="img-fluid mini-icon"
                 alt="Image"
               />
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -45,23 +45,23 @@
         <div class="row custom-left">
           <div class="col-3 left d-none d-lg-block">
             <div class="rectangle-Add-Feeds">
-              <a href="../add feeds/addfeeds.html">
+              <router-link to="/feeds/add">
                 <div class="text-Add-Feeds">Add Feeds</div>
                 <img
                   src="./assets/Add_Feeds_icon.png"
                   class="img-fluid icon-Add-Feeds"
                   alt="Add Feeds"
-              /></a>
+              /></router-link>
             </div>
 
             <div class="rectangle-Home">
-              <a href="../homepage/homepage.html">
+              <router-link to="/">
                 <div class="text-Home">Home</div>
                 <img
                   src="./assets/Home_icon.png"
                   class="img-fluid icon-Home"
                   alt="Home"
-              /></a>
+              /></router-link>
             </div>
 
             <div class="rectangle-Find">
