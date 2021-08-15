@@ -16,7 +16,7 @@ function add_feed($username, $data)
    */
 
   $post = htmlspecialchars($data['posts'], ENT_QUOTES);
-  $media = htmlspecialchars($data['media']);
+  $media = htmlspecialchars($data['media'], ENT_QUOTES);
   $current_time = date("Y-m-d h:i:s");
 
   return add_data('tb_posts', array('username' => $username, 'posts' => $post, 'media' => $media, 'timepublish' => $current_time, 'timeupdated' => $current_time));

@@ -645,9 +645,9 @@
           /></a>
         </div>
         <div class="add-feeds">
-          <a href="../add-feeds/index.html"
+          <router-link to="/feeds/add"
             ><img src="./assets/Add Feeds.svg" alt=""
-          /></a>
+          /></router-link>
         </div>
         <div class="game">
           <a href="#"><img src="./assets/Game.svg" alt="" /></a>

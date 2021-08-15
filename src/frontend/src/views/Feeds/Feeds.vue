@@ -1,17 +1,14 @@
 <template>
   <div class="body">
-    <form action="/" id="form" @submit="onSubmit">
+    <form>
       <nav class="navbar navbar-light">
         <div class="container">
           <router-link to="/">
             <img src="./assets/Vector(1).png" />
           </router-link>
           <h2>Add Feeds</h2>
-          <a class="navbar-brand2">
-            <img
-              src="./assets/Vector.png"
-              onclick="document.getElementById('form').submit();"
-            />
+          <a href="#" class="navbar-brand2" @click.prevent="onSubmit">
+            <img src="./assets/Vector.png" />
           </a>
         </div>
       </nav>
@@ -109,11 +106,42 @@ export default {
         `${API_URL}/upload.php`,
         formData,
         {
-          action: "feeds",
+          params: {
+            action: "feeds",
+          },
         }
       );
 
-      console.dir(response);
+      if (response.status === "success") {
+        const payload = {
+          posts: this.feeds,
+          media: response.data.url,
+          username: this.username,
+        };
+
+        const { data: addResp } = await axios.post(
+          `${API_URL}/feeds.php`,
+          payload,
+          {
+            params: {
+              action: "feed",
+            },
+          }
+        );
+
+        console.dir(addResp);
+
+        if (addResp.status === "success") {
+          alert("Berhasil menambahkan data");
+          this.$router.push("/");
+        } else {
+          console.dir(addResp);
+          alert("Gagal menambahkan data");
+        }
+      } else {
+        alert("Terjadi kesalahan saat mengupload media");
+        console.error("Gagal Upload :(");
+      }
     },
   },
 };
