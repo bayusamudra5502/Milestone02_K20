@@ -34,6 +34,15 @@ const routes = [
     name: "Add feeds",
     component: () => import("../views/Feeds/Feeds.vue"),
   },
+  {
+    path: "/feeds",
+    redirect: "/",
+  },
+  {
+    path: "/friends",
+    name: "Friends",
+    component: () => import("../views/Friends/Friends.vue"),
+  },
 ];
 
 const router = new VueRouter({
