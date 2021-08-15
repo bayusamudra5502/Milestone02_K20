@@ -3,9 +3,9 @@
     <form action="/" id="form">
       <nav class="navbar navbar-light">
         <div class="container">
-          <a class="navbar-brand1" href="../homepage/">
+          <router-link to = "/">
             <img src="./assets/Vector(1).png" />
-          </a>
+          </router-link>
           <h2>Add Feeds</h2>
           <a class="navbar-brand2">
             <img
