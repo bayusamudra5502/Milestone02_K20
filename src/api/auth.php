@@ -64,7 +64,8 @@ function register($payload)
     "verify" => $password_verify,
     "interest" => $interest,
     "email" => $email,
-    "birthday" => $birthday
+    "birthday" => $birthday,
+    "photo" => $photo
   ] = $payload;
 
   if (is_username_available($username)) {

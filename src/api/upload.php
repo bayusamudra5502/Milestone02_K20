@@ -35,9 +35,10 @@ function handle_profile_picture_upload()
   $ekstensi = strtolower(end($x));
 
   if (in_array($ekstensi, $cekektensi) === true) {
-    $upload = move_uploaded_file($tmpname, UPLOAD_DIR . $namefile);
+    $savename = uniqid(rand(), true) . "." . $namefile;
+    $upload = move_uploaded_file($tmpname,  UPLOAD_DIR . $savename);
     if ($upload) {
-      return SERVER_DIR . $namefile;
+      return SERVER_DIR . $savename;
     } else {
       return false;
     }
@@ -65,9 +66,10 @@ function handle_feeds_media_upload()
   $ekstensi = strtolower(end($x));
 
   if (in_array($ekstensi, $cekektensi) === true) {
-    $upload = move_uploaded_file($tmpname, UPLOAD_DIR . $namefile);
+    $savename = uniqid(rand(), true) . "." . $namefile;
+    $upload = move_uploaded_file($tmpname,  UPLOAD_DIR . $savename);
     if ($upload) {
-      return SERVER_DIR . $namefile;
+      return SERVER_DIR . $savename;
     } else {
       return false;
     }

@@ -89,6 +89,17 @@
         </select>
       </div>
       <div class="mb-3">
+        <label for="birthday" class="form-label">Bithday</label>
+        <input
+          type="date"
+          class="form-control"
+          id="birthday"
+          name="trip-start"
+          required
+          v-model="input.birthday"
+        />
+      </div>
+      <div class="mb-3">
         <label for="interest" class="form-label">Profile Picture</label>
         <input
           class="form-control"
@@ -145,6 +156,7 @@ export default {
       password: "",
       verify: "",
       interest: "",
+      birthday: "",
     },
   }),
   computed: {
@@ -164,9 +176,6 @@ export default {
           fd.append("file", this.$refs.file.files[0]);
 
           const { data } = await axios.post(`${API_URL}/upload.php`, fd, {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-            },
             params: {
               action: "profile",
             },
@@ -175,7 +184,31 @@ export default {
             },
           });
 
-          console.dir(data);
+          let photo = null;
+
+          if (data.status === "success") {
+            photo = data.data.url;
+          }
+
+          const { data: result } = await axios.post(
+            `${API_URL}/auth.php`,
+            {
+              ...this.input,
+              photo,
+            },
+            {
+              params: {
+                action: "register",
+              },
+            }
+          );
+
+          if (result.status === "success") {
+            this.$router.push("/");
+          } else {
+            this.error.isError = true;
+            this.error.errMsg = "Gunakan Username yang lain";
+          }
         } else {
           this.error.isError = true;
           this.error.errMsg = "Password tidak sama";
@@ -207,7 +240,8 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
 }
 
 .title {
