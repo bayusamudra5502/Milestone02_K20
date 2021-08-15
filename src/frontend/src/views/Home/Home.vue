@@ -2,8 +2,10 @@
   <div>
     <header>
       <div class="upper_navbar">
-        <div class="logo">
-          <a href="."><img src="./assets/Dekat.In.svg" alt="" /></a>
+        <div class="logo" @click="getAllPost(1)">
+          <router-link to="/"
+            ><img src="./assets/Dekat.In.svg" alt=""
+          /></router-link>
         </div>
         <div class="friend-nav">
           <a href="../friends-page/friends.html"
@@ -659,10 +661,81 @@
 </template>
 
 <script>
+import axios from "axios";
+import { API_URL } from "../../constant";
+import { mapGetters } from "vuex";
+
 export default {
   name: "Home",
+  data: () => ({
+    posts: [],
+    page: 1,
+  }),
+  computed: {
+    ...mapGetters({ username: "auth/username" }),
+  },
+  methods: {
+    async getAllPost(page) {
+      try {
+        const { data } = await axios.get(`${API_URL}/feeds.php`, {
+          params: {
+            action: "feed",
+            username: this.username,
+            page,
+          },
+        });
+
+        const posts = [];
+
+        for (const i of data.data[0]) {
+          const id = parseInt(i.id);
+          const { data: comments } = await axios.get(`${API_URL}/feeds.php`, {
+            params: {
+              action: "comment",
+              id,
+            },
+          });
+          const { data: like } = await axios.get(`${API_URL}/feeds.php`, {
+            params: {
+              action: "like",
+              id,
+            },
+          });
+
+          posts.push({
+            ...i,
+            comments: comments.data ?? [],
+            like: like.data ?? 0,
+          });
+        }
+
+        this.posts = posts;
+      } catch (err) {
+        console.dir(err);
+      }
+    },
+    async addLike(id) {
+      try {
+        await axios.post(
+          `${API_URL}/feeds.php`,
+          {
+            id,
+            username: this.username,
+          },
+          {
+            params: {
+              action: "like",
+            },
+          }
+        );
+      } catch (err) {
+        console.dir(err);
+      }
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 *::-webkit-scrollbar {

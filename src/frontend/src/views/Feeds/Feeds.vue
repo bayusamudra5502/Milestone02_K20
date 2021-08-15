@@ -1,9 +1,9 @@
 <template>
   <div class="body">
-    <form action="/" id="form">
+    <form action="/" id="form" @submit="onSubmit">
       <nav class="navbar navbar-light">
         <div class="container">
-          <router-link to = "/">
+          <router-link to="/">
             <img src="./assets/Vector(1).png" />
           </router-link>
           <h2>Add Feeds</h2>
@@ -65,7 +65,9 @@
           <textarea
             class="form-control1"
             id="exampleFormControlTextarea1"
+            required
             rows="7"
+            v-model="feeds"
           >
 Type here...</textarea
           >
@@ -73,14 +75,48 @@ Type here...</textarea
       </div>
       <div class="mb-3">
         <label for="formFile" class="label-input-file">File input</label>
-        <input class="form-control2" type="file" id="formFile" />
+        <input
+          class="form-control2"
+          accept="image/*"
+          type="file"
+          id="formFile"
+          ref="file"
+          required
+        />
       </div>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import { API_URL } from "../../constant";
+import { mapGetters } from "vuex";
+
+export default {
+  name: "add-feeds",
+  data: () => ({
+    feeds: "",
+  }),
+  computed: {
+    ...mapGetters({ username: "auth/username" }),
+  },
+  methods: {
+    async onSubmit() {
+      const formData = new FormData();
+      formData.append("file", this.$refs.file.files[0]);
+      const { data: response } = await axios.post(
+        `${API_URL}/upload.php`,
+        formData,
+        {
+          action: "feeds",
+        }
+      );
+
+      console.dir(response);
+    },
+  },
+};
 </script>
 
 <style scoped>

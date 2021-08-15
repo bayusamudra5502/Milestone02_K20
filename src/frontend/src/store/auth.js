@@ -9,6 +9,7 @@ export default {
   }),
   getters: {
     name: (state) => state.user?.nama ?? null,
+    username: (state) => state.user?.username ?? null,
     photoProfile: (state) =>
       state.user?.photo ? `${BASE_URL}${state.user.photo}` : USER_DEFAULT_ICON,
     isLogged: (state) => !!state.userToken,

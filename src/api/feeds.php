@@ -17,7 +17,7 @@ function add_feed($username, $data)
 
   $post = htmlspecialchars($data['posts'], ENT_QUOTES);
   $media = htmlspecialchars($data['media']);
-  $current_time = htmlspecialchars(date("Y-m-d h:i:s"), ENT_QUOTES);
+  $current_time = date("Y-m-d h:i:s");
 
   return add_data('tb_posts', array('username' => $username, 'posts' => $post, 'media' => $media, 'timepublish' => $current_time, 'timeupdated' => $current_time));
 }
@@ -32,7 +32,7 @@ function add_comment($username, $post_id, $comment)
    * Format time: Y-m-d h:m:s
    */
 
-  $current_time = htmlspecialchars(date("Y-m-d h:i:s"), ENT_QUOTES);
+  $current_time = date("Y-m-d h:i:s");
 
   return add_data('tb_comments', array('username' => $username, 'postid' => $post_id, 'comment' => $comment, 'timepublish' => $current_time, 'timeupdated' => $current_time));
 }
@@ -59,9 +59,7 @@ function get_feeds($username, $page)
   /**
    * Menghasilkan 5 feeds yang terbaru dari username
    */
-
-  $offset = ($page - 1) * 5;
-  $queue = htmlspecialchars(("SELECT tb_posts.* FROM tb_posts, tb_friends WHERE tb_friends.userfriend = tb_posts.username AND tb_friends.username = $username ORDER BY tb_posts.timepublish DESC LIMIT 5 OFFSET $offset"), ENT_QUOTES);
+  $queue = "SELECT tb_posts.* FROM tb_posts, tb_friends WHERE tb_friends.userfriend = tb_posts.username AND tb_friends.username='$username' ORDER BY tb_posts.timepublish DESC";
   $query = run_query($queue);
 
   return array($query);
@@ -76,8 +74,8 @@ function get_comments($post_id)
    * Return berupa array dari array komentar
    */
 
-  $query = htmlspecialchars(("SELECT * from tb_comments where postid = '$post_id"), ENT_QUOTES);
-  $result = htmlspecialchars(run_query($query), ENT_QUOTES);
+  $query = "SELECT * from tb_comments where postid=$post_id";
+  $result = run_query($query);
 
   return $result;
 }
@@ -88,7 +86,7 @@ function get_like_count($post_id)
    * Mendapatkan jumlah like seusai id post
    */
 
-  $likes = run_query("SELECT * from tb_likes where posts = 'post_id");
+  $likes = run_query("SELECT * from tb_likes where posts='$post_id'");
   $total = count($likes);
 
   return $total;
@@ -115,8 +113,8 @@ $response;
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
   if ($_GET["action"] === "feed") {
-    $body = file_get_contents("php://input");
-    ["username" => $username, "page" => $page] = json_decode($body, true);
+    $username = $_GET["username"];
+    $page = $_GET["page"];
     $result = get_feeds($username, $page);
 
     if ($result) {
@@ -133,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $post_id = $_GET["id"];
     $result = get_comments($post_id);
 
-    if ($result) {
+    if (gettype($result) === "array") {
       $response = array(
         "status" => "success",
         "data" => $result
@@ -147,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $post_id = $_GET["id"];
     $result = get_like_count($post_id);
 
-    if ($result) {
+    if (gettype($result) === "integer") {
       $response = array(
         "status" => "success",
         "data" => $result
