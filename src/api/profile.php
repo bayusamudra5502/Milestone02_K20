@@ -78,8 +78,10 @@ function get_profile($username)
   return $res;
 }
 
-header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *', false);
+header("Access-Control-Allow-Headers: *", false);
+
+header('Content-Type: application/json');
 
 $response;
 $username = $_GET["username"];

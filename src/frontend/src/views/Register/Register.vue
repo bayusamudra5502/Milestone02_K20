@@ -1,11 +1,16 @@
 <template>
   <div class="body">
-    <form class="auth">
+    <form class="auth" @submit.prevent="onSubmit" ref="form">
       <div class="mb-3">
         <img src="./assets/logo.png" alt="Logo" />
       </div>
       <div class="mb-3 title">
         <strong>Register Page</strong>
+      </div>
+      <div class="mb-3" v-if="error.isError">
+        <div class="alert alert-danger" role="alert">
+          {{ error.errMsg }}
+        </div>
       </div>
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
@@ -15,6 +20,8 @@
           name="name"
           id="name"
           placeholder="Input Name"
+          v-model="input.name"
+          required
         />
       </div>
       <div class="mb-3">
@@ -25,6 +32,8 @@
           name="email"
           id="email"
           placeholder="Input Email"
+          v-model="input.email"
+          required
         />
       </div>
       <div class="mb-3">
@@ -35,6 +44,8 @@
           name="username"
           id="uname"
           placeholder="Input Username"
+          v-model="input.username"
+          required
         />
       </div>
       <div class="mb-3">
@@ -44,6 +55,8 @@
           class="form-control"
           id="password"
           placeholder="Input your password"
+          v-model="input.password"
+          required
         />
       </div>
       <div class="mb-3">
@@ -53,12 +66,21 @@
           class="form-control"
           id="verify"
           placeholder="Input your password"
+          v-model="input.verify"
+          ref="verify"
+          required
         />
       </div>
       <div class="mb-3">
         <label for="interest" class="form-label">Interest</label>
-        <select class="form-select" id="interest" name="interest">
-          <option selected disabled>Select Your Interest</option>
+        <select
+          class="form-select"
+          id="interest"
+          name="interest"
+          v-model="input.interest"
+          required
+        >
+          <option selected disabled value="">Select Your Interest</option>
           <option value="Olahraga">Olahraga</option>
           <option value="Otomotif">Otomotif</option>
           <option value="Kuliner">Kuliner</option>
@@ -68,10 +90,31 @@
       </div>
       <div class="mb-3">
         <label for="interest" class="form-label">Profile Picture</label>
-        <input class="form-control" type="file" name="profile" id="formFile" />
+        <input
+          class="form-control"
+          type="file"
+          name="profile"
+          id="formFile"
+          ref="file"
+          required
+        />
+      </div>
+      <div class="mb-3" v-if="upload.isUploading">
+        <div class="progress">
+          <div
+            class="
+              progress-bar progress-bar-striped progress-bar-animated
+              bg-success
+            "
+            role="progressbar"
+            :style="progressStyle"
+          ></div>
+        </div>
       </div>
       <div class="mb-3">
-        <button type="submit" class="btn btn-dark">Login</button>
+        <button type="submit" class="btn btn-dark" :disabled="isSubmitting">
+          Register
+        </button>
         <router-link class="btn btn-link mx-1" to="/login"
           >Sudah Punya Akun</router-link
         >
@@ -81,7 +124,69 @@
 </template>
 
 <script>
-export default {};
+import { API_URL } from "../../constant";
+import axios from "axios";
+
+export default {
+  data: () => ({
+    isSubmitting: false,
+    upload: {
+      isUploading: false,
+      upload: 0,
+    },
+    error: {
+      isError: false,
+      errMsg: "",
+    },
+    input: {
+      name: "",
+      email: "",
+      username: "",
+      password: "",
+      verify: "",
+      interest: "",
+    },
+  }),
+  computed: {
+    progressStyle() {
+      return `width: ${this.upload.upload}%`;
+    },
+  },
+  methods: {
+    async onSubmit() {
+      this.isSubmitting = true;
+      this.error.isError = false;
+
+      try {
+        if (this.input.password === this.input.verify) {
+          this.isUploading = true;
+
+          await axios.post(
+            `${API_URL}/upload.php`,
+            {
+              file: this.$refs.file.files[0],
+            },
+            {
+              params: {
+                action: "profile",
+              },
+            }
+          );
+        } else {
+          this.error.isError = true;
+          this.error.errMsg = "Password tidak sama";
+        }
+      } catch (err) {
+        console.dir(err);
+        this.error.isError = true;
+        this.error.errMsg = "Terjadi kesalahan saat mendaftar";
+      }
+
+      this.isSubmitting = false;
+      this.isUploading = false;
+    },
+  },
+};
 </script>
 
 <style scoped>

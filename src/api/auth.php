@@ -7,10 +7,14 @@ function login(string $username, string $password)
 
   $query = "SELECT password FROM `tb_accounts` WHERE username='$save_uname';";
   $data = run_query($query);
-  $db_pass = $data[0]["password"];
 
-  if (password_verify($password, $db_pass)) {
-    return build_token($username);
+  if (count($data) > 0) {
+    $db_pass = $data[0]["password"];
+    if (password_verify($password, $db_pass)) {
+      return build_token($username);
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
@@ -106,6 +110,7 @@ function logout(string $token)
 }
 
 header('Access-Control-Allow-Origin: *', false);
+header("Access-Control-Allow-Headers: *", false);
 
 header('Content-Type: application/json');
 $response;

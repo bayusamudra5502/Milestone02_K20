@@ -21,6 +21,7 @@
           id="uname"
           placeholder="Input Username"
           v-model="input.username"
+          required
         />
       </div>
       <div class="mb-3">
@@ -31,6 +32,7 @@
           id="password"
           placeholder="Input your password"
           v-model="input.password"
+          required
         />
       </div>
       <div class="mb-3">

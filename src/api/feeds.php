@@ -15,11 +15,11 @@ function add_feed($username, $data)
    * Menghasilkan true bila berhasil ditambahkan
    */
 
-  $post = htmlspecialchars($data['posts'], ENT_QUOTES) ; 
-  $media = htmlspecialchars ($data['media']) ; 
-  $current_time = htmlspecialchars(date("Y-m-d h:i:s"), ENT_QUOTES) ;
-  
-  return add_data('tb_posts', array('username' => $username, 'posts' => $post, 'media' => $media, 'timepublish' => $current_time, 'timeupdated' => $current_time)) ;
+  $post = htmlspecialchars($data['posts'], ENT_QUOTES);
+  $media = htmlspecialchars($data['media']);
+  $current_time = htmlspecialchars(date("Y-m-d h:i:s"), ENT_QUOTES);
+
+  return add_data('tb_posts', array('username' => $username, 'posts' => $post, 'media' => $media, 'timepublish' => $current_time, 'timeupdated' => $current_time));
 }
 
 function add_comment($username, $post_id, $comment)
@@ -32,9 +32,9 @@ function add_comment($username, $post_id, $comment)
    * Format time: Y-m-d h:m:s
    */
 
-  $current_time = htmlspecialchars(date("Y-m-d h:i:s"), ENT_QUOTES) ;
+  $current_time = htmlspecialchars(date("Y-m-d h:i:s"), ENT_QUOTES);
 
-  return add_data('tb_comments', array('username' => $username, 'postid' => $post_id, 'comment' => $comment, 'timepublish' => $current_time, 'timeupdated' => $current_time)) ;
+  return add_data('tb_comments', array('username' => $username, 'postid' => $post_id, 'comment' => $comment, 'timepublish' => $current_time, 'timeupdated' => $current_time));
 }
 
 function add_like($username, $post_id)
@@ -45,16 +45,13 @@ function add_like($username, $post_id)
    * Menghasilkan true bila berhasil
    */
 
-  $result = run_query("SELECT username from tb_likes where username = '$username' and posts = $post_id") ;
+  $result = run_query("SELECT username from tb_likes where username = '$username' and posts = $post_id");
 
-  if (count($result) > 0) 
-  {
-    return False ;
-  } 
-  else 
-  {
-    return add_data('tb_likes', array('username' => $username, 'posts' => $post_id)) ;
-  }    
+  if (count($result) > 0) {
+    return False;
+  } else {
+    return add_data('tb_likes', array('username' => $username, 'posts' => $post_id));
+  }
 }
 
 function get_feeds($username, $page)
@@ -63,10 +60,10 @@ function get_feeds($username, $page)
    * Menghasilkan 5 feeds yang terbaru dari username
    */
 
-  $offset = ($page - 1)*5 ;
-  $queue = htmlspecialchars (("SELECT tb_posts.* FROM tb_posts, tb_friends WHERE tb_friends.userfriend = tb_posts.username AND tb_friends.username = $username ORDER BY tb_posts.timepublish DESC LIMIT 5 OFFSET $offset"), ENT_QUOTES) ;
-  $query = run_query($queue) ;
-  
+  $offset = ($page - 1) * 5;
+  $queue = htmlspecialchars(("SELECT tb_posts.* FROM tb_posts, tb_friends WHERE tb_friends.userfriend = tb_posts.username AND tb_friends.username = $username ORDER BY tb_posts.timepublish DESC LIMIT 5 OFFSET $offset"), ENT_QUOTES);
+  $query = run_query($queue);
+
   return array($query);
 }
 
@@ -79,10 +76,10 @@ function get_comments($post_id)
    * Return berupa array dari array komentar
    */
 
-  $query = htmlspecialchars (("SELECT * from tb_comments where postid = '$post_id"), ENT_QUOTES) ;
-  $result = htmlspecialchars(run_query($query), ENT_QUOTES) ;
+  $query = htmlspecialchars(("SELECT * from tb_comments where postid = '$post_id"), ENT_QUOTES);
+  $result = htmlspecialchars(run_query($query), ENT_QUOTES);
 
-  return $result ;
+  return $result;
 }
 
 function get_like_count($post_id)
@@ -91,10 +88,10 @@ function get_like_count($post_id)
    * Mendapatkan jumlah like seusai id post
    */
 
-  $likes = run_query("SELECT * from tb_likes where posts = 'post_id") ;
-  $total = count($likes) ;
+  $likes = run_query("SELECT * from tb_likes where posts = 'post_id");
+  $total = count($likes);
 
-  return $total ;
+  return $total;
 }
 
 function delete_like($username, $post_id)
@@ -105,12 +102,14 @@ function delete_like($username, $post_id)
    * Menghasilkan true bila berhasil.
    */
 
-  delete_data('tb_likes', array('username' => $username, 'posts' => $post_id)) ;
+  delete_data('tb_likes', array('username' => $username, 'posts' => $post_id));
 
   return true;
 }
 
 header('Access-Control-Allow-Origin: *', false);
+header("Access-Control-Allow-Headers: *", false);
+
 header('Content-Type: application/json');
 $response;
 

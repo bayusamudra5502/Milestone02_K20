@@ -10,7 +10,7 @@
  * - Upload Foto dan Video untuk feeds
  */
 
-define("SERVER_DIR", "/milestone/src/static/");
+define("SERVER_DIR", "/milestone/static/");
 
 # Ganti sama PATH folder milestone kalian. Ini adalah letak
 # dimana file-file hasil upload disimpan
