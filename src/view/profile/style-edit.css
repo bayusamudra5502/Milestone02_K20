@@ -1,0 +1,110 @@
+* {font-family: -apple-system, Roboto, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+html {zoom: 0.8;}
+
+.homescreen, .blendbox {
+    width: 104%;
+    margin-left:-2%;
+}
+
+.container{
+    padding: 10px;
+}
+
+.edit-profile {
+    transform: translate(30%,10%);
+}
+
+.save {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    background-color:#0099BE ;
+    color: white;
+    text-decoration: none;
+    width: 120px;
+    border-radius: 100px;
+}
+
+.save:hover{
+    color: white;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile {
+    padding: 50px;
+    border-radius: 10px;
+    background:white;
+    margin: 20px;
+}
+
+.foto-profile{
+    position: static;
+    margin-top: -75px;
+    fill: black;
+    background-blend-mode: darken;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-homescreen-container{
+    background-color: gray;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    transform: translate(510%,-300%);
+}
+
+.edit-ava-container{
+    background-color: gray;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    transform: translate(-170%, -70%); 
+}
+.edit-ava-container:hover, .edit-homescreen-container:hover{
+    background-color: black;
+}
+
+.text-input, .textarea {
+    width:100%;
+    border:gray;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.text-input{
+    height: 35px;
+}
+
+.textarea {
+    height: 100px;
+}
+.bio-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.birthdate {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.checkbox {
+    margin: 20px;
+}

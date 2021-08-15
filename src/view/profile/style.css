@@ -155,11 +155,13 @@ html {zoom: 0.8;}
     margin-top: -75px;
 }
 
-.edit{
+.edit {
     float:right;
     margin-top: -42%;
     position: relative;
 }
+
+
 
 .image-container {
     display: flex;
