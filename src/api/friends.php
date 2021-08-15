@@ -41,13 +41,13 @@ function friend_recomendations($username)
     $array_friends = run_query("SELECT userfriend FROM tb_friends username = '$username'");
     $kesukaan_teman = run_query("SELECT interest FROM tb_accounts WHERE username = '$array_friends'");
     
-    for ($i == 0; $i <= (count($array_friends) - 1); $i++){
-        if $kesukaan_teman[i] != $kesukaan{
-            unset($array_friends[i);
+    for ($i = 0; $i <= (count($array_friends) - 1); $i++){
+        if $kesukaan_teman[$i] != $kesukaan{
+            unset($array_friends[$i]);
         }
     }
-    for ($i == 0; $i <= 4; $i++){
-        $friends_recomendation[i] = $array_friends[i];
+    for ($i = 0; $i <= 4; $i++){
+        $friends_recomendation[$i] = $array_friends[$i];
     }
     return $friends_recomendation;
   /**
