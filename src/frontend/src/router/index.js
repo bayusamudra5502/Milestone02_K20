@@ -71,21 +71,22 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, _, next) => {
-  if (to.matched.some((record) => record.meta.isAuthDisallowed)) {
-    if (isLogged()) {
-      next("/");
-    } else {
-      next();
-    }
-  } else if (to.matched.some((record) => record.meta.isAuthRequired)) {
-    if (isLogged()) {
-      next();
-    } else {
-      next("/login");
-    }
-  } else {
-    next();
-  }
+  // if (to.matched.some((record) => record.meta.isAuthDisallowed)) {
+  //   if (isLogged()) {
+  //     next("/");
+  //   } else {
+  //     next();
+  //   }
+  // } else if (to.matched.some((record) => record.meta.isAuthRequired)) {
+  //   if (isLogged()) {
+  //     next();
+  //   } else {
+  //     next("/login");
+  //   }
+  // } else {
+  //   next();
+  // }
+  next();
 });
 
 function isLogged() {

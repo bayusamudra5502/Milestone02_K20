@@ -160,18 +160,22 @@ export default {
       try {
         if (this.input.password === this.input.verify) {
           this.isUploading = true;
+          const fd = new FormData();
+          fd.append("file", this.$refs.file.files[0]);
 
-          await axios.post(
-            `${API_URL}/upload.php`,
-            {
-              file: this.$refs.file.files[0],
+          const { data } = await axios.post(`${API_URL}/upload.php`, fd, {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
             },
-            {
-              params: {
-                action: "profile",
-              },
-            }
-          );
+            params: {
+              action: "profile",
+            },
+            onUploadProgress: (e) => {
+              this.upload.upload = (e.loaded * 100) / e.total;
+            },
+          });
+
+          console.dir(data);
         } else {
           this.error.isError = true;
           this.error.errMsg = "Password tidak sama";
