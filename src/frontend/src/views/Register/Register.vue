@@ -44,6 +44,7 @@
           name="username"
           id="uname"
           placeholder="Input Username"
+          pattern="[A-Za-z_0-9\.]{5,}"
           v-model="input.username"
           required
         />
