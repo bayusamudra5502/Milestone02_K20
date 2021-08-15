@@ -28,8 +28,21 @@ function handle_profile_picture_upload()
    * Endpoint : /api/upload.php?action=profile
    * 
    */
+  $namefile = $_FILES['file']['name'];
+  $tmpname = $_FILES['file']['tmp_name'];
+  $cekektensi = array('png','jpg');
+  $x = explode('.',$namefile);
+  $ekstensi = strtolower(end($x));
+  $UPLOAD_DIR = "C:/Users/Hp/Milestone02_K20/src/static";
+  $SERVER_DIR = "/milestone/src/static";
 
-  return "URL_FOTO_PROFILE";
+  if (in-array($ekstensi, $cekektensi) === true) {
+    $upload = move_uploaded_file($tmpname, $UPLOAD_DIR.$namefile);
+    if ($upload){
+      echo SERVER_DIR.$namefile;
+    } else {
+    echo false ;
+  }
 }
 
 function handle_feeds_media_upload()
@@ -44,8 +57,21 @@ function handle_feeds_media_upload()
    * Endpoint : /api/upload.php?action=feeds
    * 
    */
+  $namefile = $_FILES['file']['name'];
+  $tmpname = $_FILES['file']['tmp_name'];
+  $cekektensi = array('png','jpg');
+  $x = explode('.',$namefile);
+  $ekstensi = strtolower(end($x));
+  $UPLOAD_DIR = "C:/Users/Hp/Milestone02_K20/src/static";
+  $SERVER_DIR = "/milestone/src/static";
 
-  return "URL_FEEDS_MEDIA";
+  if (in-array($ekstensi, $cekektensi) === true) {
+    $upload = move_uploaded_file($tmpname, $UPLOAD_DIR.$namefile);
+    if ($upload){
+      echo SERVER_DIR.$namefile;
+    } else {
+    echo false ;
+  }
 }
 
 header('Content-Type: application/json');
