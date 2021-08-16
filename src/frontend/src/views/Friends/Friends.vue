@@ -29,7 +29,7 @@
             <router-link to="/profile">
               <img
                 :src="photoProfile"
-                style="width: 30px"
+                style="width: 30px; border-radius: 50%"
                 class="img-fluid mini-icon"
                 alt="Image"
               />

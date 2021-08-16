@@ -19,7 +19,10 @@
         </div>
         <div class="profile-nav">
           <router-link to="/profile"
-            ><img :src="photoProfile" alt="" style="width: 30px"
+            ><img
+              :src="photoProfile"
+              alt=""
+              style="width: 30px; border-radius: 50%"
           /></router-link>
         </div>
       </div>

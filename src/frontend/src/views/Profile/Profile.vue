@@ -17,7 +17,7 @@
                 :src="photoProfile"
                 class="img-fluid mini-icon"
                 alt="Image"
-                style="width: 30px"
+                style="width: 30px; border-radius: 50%"
             /></a>
             <a href=""
               ><img
@@ -636,6 +636,7 @@ export default {
   position: static;
   margin-top: -75px;
   width: 100px;
+  border-radius: 50%;
 }
 
 .edit {

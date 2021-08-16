@@ -14,4 +14,4 @@ jobs:
           username: dekatin
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./src/api/
-          server-dir: ./public_html/
+          server-dir: ./public_html/api/
