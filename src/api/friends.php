@@ -40,7 +40,7 @@ function friend_recomendations($username)
     $user_interest_raw = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
     $user_interest = $user_interest_raw[0]['interest'];
 
-    $user_friends_raw = run_query("SELECT userfriend FROM tb_friends WHERE userfriend = '$username'");
+    $user_friends_raw = run_query("SELECT userfriend FROM tb_friends WHERE username = '$username'");
 
     $user_friends = [];
     foreach ($user_friends_raw as $friend) {
