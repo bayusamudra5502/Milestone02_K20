@@ -1,4 +1,6 @@
-# Deket.In
+# Dekat.In
+
+<img src="src/md-assets/Dekatin.svg" alt="Favicon" align="center" />
 
 ## Dibuat oleh
 
