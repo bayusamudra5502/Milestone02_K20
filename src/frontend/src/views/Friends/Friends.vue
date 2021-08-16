@@ -331,7 +331,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* html {zoom: 0.8;} */
 
 .clickable {

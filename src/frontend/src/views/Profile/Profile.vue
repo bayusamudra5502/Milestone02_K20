@@ -44,7 +44,7 @@
             <!-- Nav Left-->
             <div class="nav-left-container">
               <div class="nav-left">
-                <a href="">
+                <router-link to="/feeds/add">
                   <div class="rectangle-Add-Feeds">
                     <div class="text-Add-Feeds">Add Feeds</div>
                     <img
@@ -53,9 +53,9 @@
                       alt="Add Feeds"
                     />
                   </div>
-                </a>
+                </router-link>
 
-                <a href="">
+                <router-link to="/">
                   <div class="rectangle-Home">
                     <div class="text-Home">Home</div>
                     <img
@@ -64,9 +64,9 @@
                       alt="Home"
                     />
                   </div>
-                </a>
+                </router-link>
 
-                <a href="">
+                <router-link to="/friends">
                   <div class="rectangle-Find">
                     <div class="text-Find">Find</div>
                     <img
@@ -75,7 +75,7 @@
                       alt="Find"
                     />
                   </div>
-                </a>
+                </router-link>
 
                 <a href="">
                   <div class="rectangle-Games">
@@ -362,13 +362,19 @@
       <div class="bottom_nav">
         <div class="kosong"></div>
         <div class="home">
-          <a href="#"><img src="./assets/home-icon.svg" alt="" /></a>
+          <router-link to="/"
+            ><img src="./assets/home-icon.svg" alt=""
+          /></router-link>
         </div>
         <div class="search">
-          <a href="#"><img src="./assets/find-icon.svg" alt="" /></a>
+          <router-link to="/friends"
+            ><img src="./assets/find-icon.svg" alt=""
+          /></router-link>
         </div>
         <div class="add-feeds">
-          <a href="#"><img src="./assets/add feeds hitam.svg" alt="" /></a>
+          <router-link to="/feeds/add"
+            ><img src="./assets/add feeds hitam.svg" alt=""
+          /></router-link>
         </div>
         <div class="game">
           <a href="#"><img src="./assets/games-icon.svg" alt="" /></a>

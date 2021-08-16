@@ -417,9 +417,6 @@ export default {
     ...mapGetters({ username: "auth/username" }),
   },
   methods: {
-    picture(src) {
-      return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
-    },
     async getAllPost(page) {
       try {
         const { data } = await axios.get(`${API_URL}/feeds.php`, {
@@ -472,18 +469,6 @@ export default {
         console.dir(err);
       }
     },
-    async getProfile(username) {
-      const {
-        data: {
-          data: [profile],
-        },
-      } = await axios.get(`${API_URL}/profile.php`, {
-        params: {
-          username,
-        },
-      });
-      return profile;
-    },
     async addComment(id) {
       const comment = prompt("Masukkan Komentar anda");
       const payload = { id, comment, username: this.username };
@@ -504,6 +489,71 @@ export default {
       } catch (err) {
         console.dir(err);
         alert("Gagal menambah komentar");
+      }
+    },
+    picture(src) {
+      return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
+    },
+    async getProfile(username) {
+      const {
+        data: {
+          data: [profile],
+        },
+      } = await axios.get(`${API_URL}/profile.php`, {
+        params: {
+          username,
+        },
+      });
+      return profile;
+    },
+    async getRecommends() {
+      const { data } = await axios.get(`${API_URL}/friends.php`, {
+        params: {
+          action: "recomendation",
+          username: this.username,
+        },
+      });
+
+      if (data.status === "success") {
+        const recommend = [];
+
+        for (const i of data.data) {
+          const profile = await this.getProfile(i);
+          recommend.push(profile);
+        }
+
+        this.recommends = recommend;
+      }
+    },
+    async getFriends() {
+      const { data } = await axios.get(`${API_URL}/friends.php`, {
+        params: {
+          action: "friends",
+          username: this.username,
+        },
+      });
+
+      const friends = [];
+      for (const { userfriend } of data.data) {
+        const profile = await this.getProfile(userfriend);
+        friends.push(profile);
+      }
+
+      this.friends = friends;
+    },
+    async addFriend(username) {
+      if (confirm("Apakah anda yakin akan menambahkannya sebagai teman?")) {
+        await axios.post(
+          `${API_URL}/friends.php`,
+          {
+            username,
+          },
+          {
+            params: {
+              username: this.username,
+            },
+          }
+        );
       }
     },
   },
