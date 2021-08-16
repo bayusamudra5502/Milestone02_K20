@@ -2,7 +2,7 @@
   <div>
     <header>
       <div class="upper_navbar">
-        <div class="logo" @click="getAllPost(1)">
+        <div class="logo">
           <router-link to="/"
             ><img src="./assets/Dekat.In.svg" alt=""
           /></router-link>
@@ -84,6 +84,11 @@
                     />
                   </div>
                 </router-link>
+                <a href="#" @click.prevent="logout">
+                  <div class="rectangle-Community">
+                    <div class="text-Community">Logout</div>
+                  </div>
+                </a>
               </div>
               <div class="rectangle-TrendingBox">
                 <div class="rectangle-Trending">
@@ -358,7 +363,7 @@
 <script>
 import axios from "axios";
 import { API_URL } from "../../constant";
-import { mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import { BASE_URL, USER_DEFAULT_ICON } from "../../constant";
 
 export default {
@@ -372,9 +377,33 @@ export default {
     ...mapGetters({
       username: "auth/username",
       photoProfile: "auth/photoProfile",
+      token: "auth/getToken",
     }),
   },
   methods: {
+    ...mapActions({
+      resetUser: "auth/resetUser",
+    }),
+    async logout() {
+      try {
+        await axios.post(
+          `${API_URL}/auth.php`,
+          {
+            token: this.token,
+          },
+          {
+            params: {
+              action: "logout",
+            },
+          }
+        );
+        localStorage.removeItem("login");
+        this.resetUser();
+        this.$router.push("/login");
+      } catch (err) {
+        console.dir(err);
+      }
+    },
     async getAllPost(page) {
       try {
         const { data } = await axios.get(`${API_URL}/feeds.php`, {
@@ -518,7 +547,7 @@ export default {
       }
     },
   },
-  async created() {
+  async mounted() {
     await this.getAllPost(this.page);
     await this.getRecommends();
   },
