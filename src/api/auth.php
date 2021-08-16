@@ -83,7 +83,8 @@ function register($payload)
         "password" => $salted_pass,
         "interest" => $save_interest,
         "email" => $save_email,
-        "birthday" => $save_birthday
+        "birthday" => $save_birthday,
+        "photo" => $photo
       );
 
       if (add_data("tb_accounts", $data) !== null) {

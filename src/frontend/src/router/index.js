@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "../store";
+import { API_URL } from "../constant";
+import axios from "axios";
 
 Vue.use(VueRouter);
 
@@ -62,6 +64,10 @@ const routes = [
       isAuthRequired: true,
     },
   },
+  {
+    path: "*",
+    redirect: "/",
+  },
 ];
 
 const router = new VueRouter({
@@ -70,15 +76,15 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, _, next) => {
+router.beforeEach(async (to, _, next) => {
   if (to.matched.some((record) => record.meta.isAuthDisallowed)) {
-    if (isLogged()) {
+    if (await isLogged()) {
       next("/");
     } else {
       next();
     }
   } else if (to.matched.some((record) => record.meta.isAuthRequired)) {
-    if (isLogged()) {
+    if (await isLogged()) {
       next();
     } else {
       next("/login");
@@ -86,10 +92,38 @@ router.beforeEach((to, _, next) => {
   } else {
     next();
   }
+  // next();
 });
 
-function isLogged() {
-  return store.getters["auth/isLogged"];
+async function isLogged() {
+  if (store.getters["auth/isLogged"]) {
+    return true;
+  } else {
+    const token = localStorage.getItem("login");
+    if (token) {
+      const { data } = await axios.post(
+        `${API_URL}/auth.php`,
+        {
+          token,
+        },
+        {
+          params: {
+            action: "session",
+          },
+        }
+      );
+
+      console.dir(data);
+
+      if (data.status === "success") {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
 }
 
 export default router;
