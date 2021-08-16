@@ -14,9 +14,10 @@
           <div class="col-9">
             <a href=""
               ><img
-                src="./assets/profile.png"
+                :src="photoProfile"
                 class="img-fluid mini-icon"
                 alt="Image"
+                style="width: 30px"
             /></a>
             <a href=""
               ><img
@@ -223,65 +224,24 @@
                 <div class="rectangle-right">
                   <span class="text-recommended"> Recomended For You </span>
                   <div class="line-right"></div>
-                  <div class="rectangle-addfriend1">
-                    <a href="">
-                      <div class="addfriend-profile1"></div>
-                      <div class="text-addfriend1">Kristin Watson</div>
-                      <img
-                        src="./assets/profile friends.svg"
-                        class="img-fluid icon-addfriend1"
-                        alt="hi"
-                      />
-                    </a>
-                    <a href="">
-                      <img src="./assets/plus.svg" alt="" class="plus-sign" />
-                    </a>
+                  <div
+                    class="rectangle-addfriend1"
+                    v-for="rec of recommends"
+                    :key="rec.id"
+                    style="cursor: pointer"
+                    @click="addFriend(rec.username)"
+                  >
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">{{ rec.nama }}</div>
+                    <img
+                      :src="picture(rec.photo)"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+
+                    <img src="./assets/plus.svg" alt="" class="plus-sign" />
                   </div>
 
-                  <div class="rectangle-addfriend1">
-                    <a href="">
-                      <div class="addfriend-profile1"></div>
-                      <div class="text-addfriend1">Esther Howard</div>
-                      <img
-                        src="./assets/profile friends 2.svg"
-                        class="img-fluid icon-addfriend1"
-                        alt="hi"
-                      />
-                    </a>
-                    <a href="">
-                      <img src="./assets/plus.svg" alt="" class="plus-sign" />
-                    </a>
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <a href="">
-                      <div class="addfriend-profile1"></div>
-                      <div class="text-addfriend1">LesLie Alexander</div>
-                      <img
-                        src="./assets/profile friends 3.svg"
-                        class="img-fluid icon-addfriend1"
-                        alt="hi"
-                      />
-                    </a>
-                    <a href="">
-                      <img src="./assets/plus.svg" alt="" class="plus-sign" />
-                    </a>
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <a href="">
-                      <div class="addfriend-profile1"></div>
-                      <div class="text-addfriend1">Dianne Russel</div>
-                      <img
-                        src="./assets/profile friends 4.svg"
-                        class="img-fluid icon-addfriend1"
-                        alt="hi"
-                      />
-                    </a>
-                    <a href="">
-                      <img src="./assets/plus.svg" alt="" class="plus-sign" />
-                    </a>
-                  </div>
                   <div class="text-ShowMore">
                     <a href>Show More</a>
                   </div>
@@ -409,16 +369,84 @@ async function getProfile(username) {
 export default {
   data: () => ({
     profile: {},
+    recommends: [],
   }),
   computed: {
-    ...mapGetters({ username: "auth/username" }),
+    ...mapGetters({
+      username: "auth/username",
+      photoProfile: "auth/photoProfile",
+    }),
   },
   methods: {
     picture(src) {
       return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
     },
+    async getProfile(username) {
+      const {
+        data: {
+          data: [profile],
+        },
+      } = await axios.get(`${API_URL}/profile.php`, {
+        params: {
+          username,
+        },
+      });
+      return profile;
+    },
+    async getRecommends() {
+      const { data } = await axios.get(`${API_URL}/friends.php`, {
+        params: {
+          action: "recomendation",
+          username: this.username,
+        },
+      });
+
+      if (data.status === "success") {
+        const recommend = [];
+
+        for (const i of data.data) {
+          const profile = await this.getProfile(i);
+          recommend.push(profile);
+        }
+
+        this.recommends = recommend;
+      }
+    },
+    async getFriends() {
+      const { data } = await axios.get(`${API_URL}/friends.php`, {
+        params: {
+          action: "friends",
+          username: this.username,
+        },
+      });
+
+      const friends = [];
+      for (const { userfriend } of data.data) {
+        const profile = await this.getProfile(userfriend);
+        friends.push(profile);
+      }
+
+      this.friends = friends;
+    },
+    async addFriend(username) {
+      if (confirm("Apakah anda yakin akan menambahkannya sebagai teman?")) {
+        await axios.post(
+          `${API_URL}/friends.php`,
+          {
+            username,
+          },
+          {
+            params: {
+              username: this.username,
+            },
+          }
+        );
+      }
+    },
   },
   async mounted() {
+    await this.getRecommends();
+
     const username = this.$route.params.username ?? this.username;
     const profile = await getProfile(username);
 

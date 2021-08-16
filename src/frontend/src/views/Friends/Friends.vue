@@ -28,7 +28,8 @@
             </a>
             <router-link to="/profile">
               <img
-                src="./assets/Profpic.png"
+                :src="photoProfile"
+                style="width: 30px"
                 class="img-fluid mini-icon"
                 alt="Image"
               />
@@ -255,7 +256,10 @@ export default {
     friends: [],
   }),
   computed: {
-    ...mapGetters({ username: "auth/username" }),
+    ...mapGetters({
+      username: "auth/username",
+      photoProfile: "auth/photoProfile",
+    }),
   },
   methods: {
     picture(src) {
