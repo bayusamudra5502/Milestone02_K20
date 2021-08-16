@@ -132,11 +132,15 @@
           </div>
           <div class="col-mid">
             <div class="midhead">
-              <div class="container">Home</div>
+              <div class="container ini-tengah">Home</div>
             </div>
             <div class="feeds">
               <div class="photo_feed">
-                <div class="container" v-for="post of posts" :key="post.id">
+                <div
+                  class="container ini-tengah"
+                  v-for="post of posts"
+                  :key="post.id"
+                >
                   <div class="header">
                     <div class="rectangle-pp">
                       <router-link
@@ -204,6 +208,159 @@
                       >
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-right">
+            <div class="container main">
+              <div class="rectangle-right">
+                <span class="text-recommended"> Recomended For You </span>
+                <div class="line-right"></div>
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Kristin Watson</div>
+                    <img
+                      src="./assets/profile friends.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Esther Howard</div>
+                    <img
+                      src="./assets/profile friends 2.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">LesLie Alexander</div>
+                    <img
+                      src="./assets/profile friends 3.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Dianne Russel</div>
+                    <img
+                      src="./assets/profile friends 4.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+                <div class="text-ShowMore">
+                  <router-link to>Show More</router-link>
+                </div>
+
+                <div class="text-community-right">Community</div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Pecinta Sepeda</div>
+                    <img
+                      src="./assets/profile community 1.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Pelihara kami yuk !</div>
+                    <img
+                      src="./assets/profile community 2.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Belajar Arsitektur</div>
+                    <img
+                      src="./assets/profile community 3.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="rectangle-addfriend1">
+                  <router-link to="">
+                    <div class="addfriend-profile1"></div>
+                    <div class="text-addfriend1">Belajar Bangunan</div>
+                    <img
+                      src="./assets/profile community 4.svg"
+                      class="img-fluid icon-addfriend1"
+                      alt="hi"
+                    />
+                    <img
+                      src="./assets/Plus Sign.svg"
+                      alt=""
+                      class="plus-sign"
+                    />
+                  </router-link>
+                </div>
+
+                <div class="text-ShowMore">
+                  <router-link to="">Show More</router-link>
                 </div>
               </div>
             </div>
@@ -366,6 +523,14 @@ export default {
 *::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 20px;
+}
+
+.container {
+  width: fit-content;
+}
+
+.ini-tengah {
+  width: 100% !important;
 }
 
 body {
