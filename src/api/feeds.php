@@ -11,7 +11,7 @@ function add_feed($username, $data)
    * Menambahkan feeds ada database.
    * Parameter $data berisi keys:
    * posts dan media
-   * 
+   *
    * Menghasilkan true bila berhasil ditambahkan
    */
 
@@ -26,9 +26,9 @@ function add_comment($username, $post_id, $comment)
 {
   /**
    * Menambahkan komentar
-   * 
+   *
    * menghasilkan True bila berhasil
-   * 
+   *
    * Format time: Y-m-d h:m:s
    */
 
@@ -41,7 +41,7 @@ function add_like($username, $post_id)
 {
   /**
    * Menambahkan like
-   * 
+   *
    * Menghasilkan true bila berhasil
    */
 
@@ -59,7 +59,7 @@ function get_feeds($username, $page)
   /**
    * Menghasilkan 5 feeds yang terbaru dari username
    */
-  $queue = "SELECT tb_posts.* FROM tb_posts, tb_friends WHERE tb_friends.userfriend = tb_posts.username AND tb_friends.username='$username'  ORDER BY tb_posts.timepublish DESC";
+  $queue = "SELECT tb_posts.* FROM tb_posts, tb_friends WHERE (tb_friends.userfriend = tb_posts.username AND tb_friends.username='".$username."') OR tb_posts.username = '$username' ORDER BY tb_posts.timepublish DESC";
   $query = run_query($queue);
 
   return array($query);
@@ -70,7 +70,7 @@ function get_comments($post_id)
 {
   /**
    * Mendapatkan komentar berdasarkan id post
-   * 
+   *
    * Return berupa array dari array komentar
    */
 
@@ -96,7 +96,7 @@ function delete_like($username, $post_id)
 {
   /**
    * Menghapus like.
-   * 
+   *
    * Menghasilkan true bila berhasil.
    */
 
