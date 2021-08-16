@@ -139,40 +139,53 @@
             <div class="atas">
               <img src="./assets/homescreen.svg" class="homescreen" />
               <img src="./assets/blackbox.svg" class="blendbox" />
-              <img src="./assets/edit.svg" class="edit" />
+              <img
+                src="./assets/edit.svg"
+                class="edit"
+                v-if="username === profile.username"
+              />
             </div>
             <div class="image-container">
               <img src="./assets/foto profile.svg" class="foto-profile" />
             </div>
             <div class="rectangle-nama">
-              <div class="text-nama">Gilang Pramudini, 24</div>
+              <div class="text-nama" v-if="profile.nama">
+                {{ profile.nama }}
+              </div>
             </div>
             <div class="sosmed-container">
-              <img src="./assets/facebook.svg" class="facebook" />
-              <img src="./assets/instagram.svg" class="instagram" />
-              <img src="./assets/linkedin.svg" class="linkedin" />
-              <img src="./assets/youtube.svg" class="youtube" />
-              <img src="./assets/snapchat.svg" class="snapchat" />
+              <a :href="profile.facebook_url" v-if="profile.facebook_url">
+                <img src="./assets/facebook.svg" class="facebook" />
+              </a>
+              <a :href="profile.facebook_url" v-if="profile.facebook_url">
+                <img src="./assets/instagram.svg" class="instagram" />
+              </a>
+              <a :href="profile.facebook_url" v-if="profile.facebook_url">
+                <img src="./assets/linkedin.svg" class="linkedin" />
+              </a>
             </div>
 
             <!--Bio-->
             <div class="bio-container">
-              <div class="birthdate">29 February 1997</div>
-              <div class="education">
+              <div class="birthdate">
+                {{
+                  new Intl.DateTimeFormat("id-ID", {
+                    dateStyle: "long",
+                  }).format(new Date(profile.birthday))
+                }}
+              </div>
+              <div class="education" v-if="profile.education">
                 <h4>Education</h4>
-                <p>Bandung Institute of Technology</p>
+                <p>{{ profile.education }}</p>
               </div>
               <div class="interest">
                 <h4>Interest</h4>
-                <p>Programming, Drawing</p>
+                <p>{{ profile.interest }}</p>
               </div>
-              <div class="bio">
+              <div class="bio" v-if="profile.bio">
                 <h4>Bio</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Tempor, diam viverra aliquam lacus, parturient massa elementum
-                  sit interdum. Eget pretium, porta tristique pretium, nunc
-                  phasellus.
+                  {{ profile.bio }}
                 </p>
               </div>
             </div>
@@ -369,7 +382,44 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import { API_URL } from "../../constant";
+import { mapGetters } from "vuex";
+import { BASE_URL, USER_DEFAULT_ICON } from "../../constant";
+
+async function getProfile(username) {
+  const {
+    data: {
+      data: [profile],
+    },
+  } = await axios.get(`${API_URL}/profile.php`, {
+    params: {
+      username,
+    },
+  });
+  return profile;
+}
+
+export default {
+  data: () => ({
+    profile: {},
+  }),
+  computed: {
+    ...mapGetters({ username: "auth/username" }),
+  },
+  method: {
+    picture(src) {
+      return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
+    },
+  },
+  async mounted() {
+    const username = this.$route.params.username ?? this.username;
+    const profile = await getProfile(username);
+
+    this.profile = profile;
+    console.dir(profile);
+  },
+};
 </script>
 
 <style scoped>
