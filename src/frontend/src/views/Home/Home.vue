@@ -775,6 +775,11 @@ header {
   transform: translate(0, -50%);
 }
 
+.user-pp,
+.commentator-pp {
+  width: 40px;
+}
+
 .col-mid .photo_feed .container .rectangle-pp .name-user {
   position: absolute;
   left: 112px;

@@ -129,11 +129,13 @@
             <div class="row custom-row-middle border">
               <div class="fixed-on-mobile">
                 <div class="col-12 custom-col-mid">
-                  <img
-                    src="./assets/icon_back.png"
-                    class="img-fluid icon-back d-block d-lg-none"
-                    alt="hi"
-                  />
+                  <router-link to="/">
+                    <img
+                      src="./assets/icon_back.png"
+                      class="img-fluid icon-back d-block d-lg-none"
+                      alt="hi"
+                    />
+                  </router-link>
                   <div class="text-Friends-mobile d-block d-lg-none">
                     Friends
                   </div>
@@ -167,37 +169,19 @@
 
                   <div class="rectangle-recommended-mobile d-block d-lg-none">
                     <div class="frame-profile-mobile">
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
-                      </div>
-                      <div class="rectangle-reccomended-profile-mobile">
-                        <div class="m-profpic1"></div>
-                        <div class="m-profname1">Ahmad Budi Cahyo</div>
+                      <div
+                        class="rectangle-reccomended-profile-mobile clickable"
+                        v-for="rec of recommends"
+                        :key="rec.id"
+                        @click="addFriend(rec.username)"
+                      >
+                        <div
+                          class="m-profpic1"
+                          :style="`background-image: url('${picture(
+                            rec.photo
+                          )}');`"
+                        ></div>
+                        <div class="m-profname1">{{ rec.nama }}</div>
                       </div>
                     </div>
                   </div>
@@ -205,115 +189,18 @@
               </div>
 
               <div class="friendlist-box">
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
-                  <img
-                    src="./assets/DM_icon.png"
-                    class="img-fluid icon-DM1"
-                    alt="hi"
-                  />
-                </div>
-                <div class="rectangle-friendlist1">
-                  <div class="friendlist-profile1"></div>
-                  <div class="text-friend1">Robert Downey Jr.</div>
+                <div
+                  class="rectangle-friendlist1"
+                  v-for="friend of friends"
+                  :key="friend.id"
+                >
+                  <div
+                    class="friendlist-profile1"
+                    :style="`background-image: url('${picture(
+                      friend.photo
+                    )}');`"
+                  ></div>
+                  <div class="text-friend1">{{ friend.nama }}</div>
                   <img
                     src="./assets/DM_icon.png"
                     class="img-fluid icon-DM1"
@@ -331,87 +218,18 @@
                 <div class="rectangle-right">
                   <span class="text-recommended"> Recommended For You </span>
                   <div class="line-right"></div>
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
 
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
-
-                  <div class="text-ShowMore">Show More</div>
-                  <div class="text-community-right">Community</div>
-
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                  </div>
-
-                  <div class="rectangle-addfriend1">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Joseph Stalin</div>
-                    <img
-                      src="./assets/addfriend_icon.png"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
+                  <div
+                    class="rectangle-addfriend1 clickable"
+                    v-for="rec of recommends"
+                    :key="rec.id"
+                    @click="addFriend(rec.username)"
+                  >
+                    <div
+                      class="addfriend-profile1"
+                      :style="`background-image: url('${picture(rec.photo)}');`"
+                    ></div>
+                    <div class="text-addfriend1">{{ rec.nama }}</div>
                   </div>
 
                   <div class="text-ShowMore">Show More</div>
@@ -426,15 +244,99 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import { API_URL } from "../../constant";
+import { mapGetters } from "vuex";
+import { BASE_URL, USER_DEFAULT_ICON } from "../../constant";
+
+export default {
+  data: () => ({
+    recommends: [],
+    friends: [],
+  }),
+  computed: {
+    ...mapGetters({ username: "auth/username" }),
+  },
+  methods: {
+    picture(src) {
+      return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
+    },
+    async getProfile(username) {
+      const {
+        data: {
+          data: [profile],
+        },
+      } = await axios.get(`${API_URL}/profile.php`, {
+        params: {
+          username,
+        },
+      });
+      return profile;
+    },
+    async getRecommends() {
+      const { data } = await axios.get(`${API_URL}/friends.php`, {
+        params: {
+          action: "recomendation",
+          username: this.username,
+        },
+      });
+
+      if (data.status === "success") {
+        const recommend = [];
+
+        for (const i of data.data) {
+          const profile = await this.getProfile(i);
+          recommend.push(profile);
+        }
+
+        this.recommends = recommend;
+      }
+    },
+    async getFriends() {
+      const { data } = await axios.get(`${API_URL}/friends.php`, {
+        params: {
+          action: "friends",
+          username: this.username,
+        },
+      });
+
+      const friends = [];
+      for (const { userfriend } of data.data) {
+        const profile = await this.getProfile(userfriend);
+        friends.push(profile);
+      }
+
+      this.friends = friends;
+    },
+    async addFriend(username) {
+      if (confirm("Apakah anda yakin akan menambahkannya sebagai teman?")) {
+        await axios.post(
+          `${API_URL}/friends.php`,
+          {
+            username,
+          },
+          {
+            params: {
+              username: this.username,
+            },
+          }
+        );
+      }
+    },
+  },
+  async mounted() {
+    await this.getRecommends();
+    await this.getFriends();
+  },
+};
 </script>
 
 <style>
-* {
-  font-family: -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI", Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
 /* html {zoom: 0.8;} */
+
+.clickable {
+  cursor: pointer;
+}
 .header {
   position: fixed;
   z-index: 2;
@@ -668,6 +570,8 @@ export default {};
   background: url(./assets/profile_dummy1.png);
   border-radius: 50px;
   cursor: pointer;
+  background-position: center;
+  background-size: cover;
 }
 .text-friend1 {
   position: absolute;

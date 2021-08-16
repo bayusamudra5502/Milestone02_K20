@@ -3,6 +3,8 @@
 /**
  * FRIENDS
  */
+ 
+ require_once "koneksi.php";
 
 function get_all_friends($username)
 {
@@ -96,8 +98,7 @@ $username = $_GET["username"];
 
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
   if ($_GET["action"] === "recomendation") {
-    $page = $_GET["page"];
-    $result = friend_recomendations($username, $page);
+    $result = friend_recomendations($username);
 
     if ($result) {
       $response = array(
