@@ -35,20 +35,10 @@ function add_friend($username, $friend_username)
    */
 }
 
-function friend_recomendations($username)
+function friend_recomendations($username,$page)
 {   
     $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
-    $array_friends = run_query("SELECT userfriend FROM tb_friends username = '$username'");
-    $kesukaan_teman = run_query("SELECT interest FROM tb_accounts WHERE username = '$array_friends'");
-    
-    for ($i = 0; $i <= (count($array_friends) - 1); $i++){
-        if $kesukaan_teman[$i] != $kesukaan{
-            unset($array_friends[$i]);
-        }
-    }
-    for ($i = 0; $i <= 4; $i++){
-        $friends_recomendation[$i] = $array_friends[$i];
-    }
+    $friends_recomendation = run_query("SELECT userfriend FROM tb_friends WHERE interest = '$kesukaan' ORDERS LIMIT 5 OFFSET '$page'");
     return $friends_recomendation;
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
