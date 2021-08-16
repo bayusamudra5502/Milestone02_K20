@@ -8,17 +8,17 @@
           /></router-link>
         </div>
         <div class="friend-nav">
-          <a href="../friends-page/friends.html"
+          <router-link to="/friends"
             ><img src="./assets/Friend.svg" alt=""
-          /></a>
+          /></router-link>
         </div>
         <div class="chat-nav">
-          <a href="#"><img src="./assets/Chat.svg" alt="" /></a>
+          <router-link to="#"><img src="./assets/Chat.svg" alt="" /></router-link>
         </div>
         <div class="profile-nav">
-          <a href="../profile/index.html"
+          <router-link to="/profile"
             ><img src="./assets/Profile.svg" alt=""
-          /></a>
+          /></router-link>
         </div>
       </div>
     </header>
@@ -28,7 +28,7 @@
           <div class="col-left">
             <div class="nav-left-container">
               <div class="nav-left">
-                <a href="../add-feeds/index.html">
+                <router-link to="/feeds/add">
                   <div class="rectangle-Add-Feeds">
                     <div class="text-Add-Feeds">Add Feeds</div>
                     <img
@@ -37,9 +37,9 @@
                       alt="Add Feeds"
                     />
                   </div>
-                </a>
+                </router-link>
 
-                <a href=".">
+                <router-link to="/">
                   <div class="rectangle-Home">
                     <div class="text-Home">Home</div>
                     <img
@@ -48,9 +48,9 @@
                       alt="Home"
                     />
                   </div>
-                </a>
+                </router-link>
 
-                <a href="../friends-page/index.html">
+                <router-link to="/friends">
                   <div class="rectangle-Find">
                     <div class="text-Find">Find</div>
                     <img
@@ -59,9 +59,9 @@
                       alt="Find"
                     />
                   </div>
-                </a>
+                </router-link>
 
-                <a href="">
+                <router-link to="">
                   <div class="rectangle-Games">
                     <div class="text-Games">Games</div>
                     <img
@@ -70,9 +70,9 @@
                       alt="Games"
                     />
                   </div>
-                </a>
+                </router-link>
 
-                <a href="">
+                <router-link to="">
                   <div class="rectangle-Community">
                     <div class="text-Community">Community</div>
                     <img
@@ -81,7 +81,7 @@
                       alt="Community"
                     />
                   </div>
-                </a>
+                </router-link>
               </div>
               <div class="rectangle-TrendingBox">
                 <div class="rectangle-Trending">
@@ -90,28 +90,28 @@
                 <div class="line-left"></div>
 
                 <div class="rectangle-Trend1">
-                  <a href="" class="text-Trends1">Badminton</a>
+                  <router-link to="" class="text-Trends1">Badminton</router-link>
                 </div>
                 <div class="rectangle-Trend2">
-                  <a href="" class="text-Trends2">#AmbisUTBK</a>
+                  <router-link to="" class="text-Trends2">#AmbisUTBK</router-link>
                 </div>
                 <div class="rectangle-Trend3">
-                  <a href="" class="text-Trends3">#AyoBersepeda</a>
+                  <router-link to="" class="text-Trends3">#AyoBersepeda</router-link>
                 </div>
                 <div class="rectangle-Trend4">
-                  <a href="" class="text-Trends4">Fotografi Kini</a>
+                  <router-link to="" class="text-Trends4">Fotografi Kini</router-link>
                 </div>
                 <div class="rectangle-Trend5">
-                  <a href="" class="text-Trends5">Genshin Impact</a>
+                  <router-link to="" class="text-Trends5">Genshin Impact</router-link>
                 </div>
                 <div class="rectangle-Trend6">
-                  <a href="" class="text-Trends6">#Killjoy</a>
+                  <router-link to="" class="text-Trends6">#Killjoy</router-link>
                 </div>
                 <div class="rectangle-Trend7">
-                  <a href="" class="text-Trends7">Masak Hari Ini</a>
+                  <router-link to="" class="text-Trends7">Masak Hari Ini</router-link>
                 </div>
                 <div class="rectangle-Trend8">
-                  <a class="text-Trends8">Sepatu</a>
+                  <router-link to="" class="text-Trends8">Sepatu</router-link>
                 </div>
               </div>
             </div>
@@ -125,14 +125,13 @@
                 <div class="container">
                   <div class="header">
                     <div class="rectangle-pp">
-                      <a href="../profile/index-friend.html" class="link-pp"
+                      <router-link to="/profile" class="link-pp"
                         ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></a>
+                      /></router-link>
                       <div class="name-user">
-                        <a href="../profile/index-friend.html" class="link-pp"
-                          >Ziyad Ardiansyah</a
-                        >
-                        <a href="" class="add-text">• add</a>
+                        <router-link to="/profile" class="link-pp"
+                          >Ziyad Ardiansyah</router-link>
+                        <router-link to="" class="add-text">• add</router-link>
                       </div>
                     </div>
                   </div>
@@ -155,38 +154,36 @@
                     <div class="hour-content">10h</div>
                   </div>
                   <div class="commentator">
-                    <a
-                      href="../profile/index-friend.html"
+                    <router-link to="/profile"
                       class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a href="" class="link-commentator">Calvin Samudera</a>
-                      <a href="" class="comment-text"
+                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
                   <div class="commentator">
-                    <a href="" class="link-commentator"
+                    <router-link to="" class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a
-                        href="../profile/index-friend.html"
+                      <router-link to="/profile"
                         class="link-commentator"
-                        >Calvin Samudera</a
+                        >Calvin Samudera</router-link
                       >
-                      <a href="" class="comment-text"
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
@@ -196,14 +193,14 @@
                 <div class="container">
                   <div class="header">
                     <div class="rectangle-pp">
-                      <a href="../profile/index-friend.html" class="link-pp"
+                      <router-link to="/profile" class="link-pp"
                         ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></a>
+                      /></router-link>
                       <div class="name-user">
-                        <a href="../profile/index-friend.html" class="link-pp"
-                          >Ziyad Ardiansyah</a
+                        <router-link to="/profile" class="link-pp"
+                          >Ziyad Ardiansyah</router-link
                         >
-                        <a href="" class="add-text">• add</a>
+                        <router-link to="" class="add-text">• add</router-link>
                       </div>
                     </div>
                   </div>
@@ -226,38 +223,36 @@
                     <div class="hour-content">10h</div>
                   </div>
                   <div class="commentator">
-                    <a
-                      href="../profile/index-friend.html"
+                    <router-link to="/profile"
                       class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a href="" class="link-commentator">Calvin Samudera</a>
-                      <a href="" class="comment-text"
+                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
                   <div class="commentator">
-                    <a href="" class="link-commentator"
+                    <router-link to="" class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a
-                        href="../profile/index-friend.html"
+                      <router-link to="/profile"
                         class="link-commentator"
-                        >Calvin Samudera</a
+                        >Calvin Samudera</router-link
                       >
-                      <a href="" class="comment-text"
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
@@ -267,14 +262,14 @@
                 <div class="container">
                   <div class="header">
                     <div class="rectangle-pp">
-                      <a href="../profile/index-friend.html" class="link-pp"
+                      <router-link to="/profile" class="link-pp"
                         ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></a>
+                      /></router-link>
                       <div class="name-user">
-                        <a href="../profile/index-friend.html" class="link-pp"
-                          >Ziyad Ardiansyah</a
+                        <router-link to="/profile" class="link-pp"
+                          >Ziyad Ardiansyah</router-link
                         >
-                        <a href="" class="add-text">• add</a>
+                        <router-link to="" class="add-text">• add</router-link>
                       </div>
                     </div>
                   </div>
@@ -297,38 +292,36 @@
                     <div class="hour-content">10h</div>
                   </div>
                   <div class="commentator">
-                    <a
-                      href="../profile/index-friend.html"
+                    <router-link to="/profile"
                       class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a href="" class="link-commentator">Calvin Samudera</a>
-                      <a href="" class="comment-text"
+                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
                   <div class="commentator">
-                    <a href="" class="link-commentator"
+                    <router-link to="" class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a
-                        href="../profile/index-friend.html"
+                      <router-link to="/profile"
                         class="link-commentator"
-                        >Calvin Samudera</a
+                        >Calvin Samudera</router-link
                       >
-                      <a href="" class="comment-text"
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
@@ -338,14 +331,14 @@
                 <div class="container">
                   <div class="header">
                     <div class="rectangle-pp">
-                      <a href="../profile/index-friend.html" class="link-pp"
+                      <router-link to="/profile" class="link-pp"
                         ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></a>
+                      /></router-link>
                       <div class="name-user">
-                        <a href="../profile/index-friend.html" class="link-pp"
-                          >Ziyad Ardiansyah</a
+                        <router-link to="/profile" class="link-pp"
+                          >Ziyad Ardiansyah</router-link
                         >
-                        <a href="" class="add-text">• add</a>
+                        <router-link to="" class="add-text">• add</router-link>
                       </div>
                     </div>
                   </div>
@@ -368,38 +361,36 @@
                     <div class="hour-content">10h</div>
                   </div>
                   <div class="commentator">
-                    <a
-                      href="../profile/index-friend.html"
+                    <router-link to="/profile"
                       class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a href="" class="link-commentator">Calvin Samudera</a>
-                      <a href="" class="comment-text"
+                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
                   <div class="commentator">
-                    <a href="" class="link-commentator"
+                    <router-link to="" class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a
-                        href="../profile/index-friend.html"
+                      <router-link to="/profile"
                         class="link-commentator"
-                        >Calvin Samudera</a
+                        >Calvin Samudera</router-link
                       >
-                      <a href="" class="comment-text"
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
@@ -409,14 +400,14 @@
                 <div class="container">
                   <div class="header">
                     <div class="rectangle-pp">
-                      <a href="../profile/index-friend.html" class="link-pp"
+                      <router-link to="/profile" class="link-pp"
                         ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></a>
+                      /></router-link>
                       <div class="name-user">
-                        <a href="../profile/index-friend.html" class="link-pp"
-                          >Ziyad Ardiansyah</a
+                        <router-link to="/profile" class="link-pp"
+                          >Ziyad Ardiansyah</router-link
                         >
-                        <a href="" class="add-text">• add</a>
+                        <router-link to="" class="add-text">• add</router-link>
                       </div>
                     </div>
                   </div>
@@ -439,38 +430,36 @@
                     <div class="hour-content">10h</div>
                   </div>
                   <div class="commentator">
-                    <a
-                      href="../profile/index-friend.html"
+                    <router-link to="/profile"
                       class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a href="" class="link-commentator">Calvin Samudera</a>
-                      <a href="" class="comment-text"
+                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
                   <div class="commentator">
-                    <a href="" class="link-commentator"
+                    <router-link to="" class="link-commentator"
                       ><img
                         src="./assets/commentator.svg"
                         alt=""
                         class="commentator-pp"
-                    /></a>
+                    /></router-link>
                     <div class="commentator-name">
-                      <a
-                        href="../profile/index-friend.html"
+                      <router-link to="/profile"
                         class="link-commentator"
-                        >Calvin Samudera</a
+                        >Calvin Samudera</router-link
                       >
-                      <a href="" class="comment-text"
+                      <router-link to="" class="comment-text"
                         >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</a
+                        tijalikeuh</router-link
                       >
                     </div>
                   </div>
@@ -484,7 +473,7 @@
                 <span class="text-recommended"> Recomended For You </span>
                 <div class="line-right"></div>
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Kristin Watson</div>
                     <img
@@ -497,11 +486,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Esther Howard</div>
                     <img
@@ -514,11 +503,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">LesLie Alexander</div>
                     <img
@@ -531,11 +520,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Dianne Russel</div>
                     <img
@@ -548,16 +537,16 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
                 <div class="text-ShowMore">
-                  <a href>Show More</a>
+                  <router-link to>Show More</router-link>
                 </div>
 
                 <div class="text-community-right">Community</div>
 
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Pecinta Sepeda</div>
                     <img
@@ -570,11 +559,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Pelihara kami yuk !</div>
                     <img
@@ -587,11 +576,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="rectangle-addfriend1">
-                  <a href="">
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Belajar Arsitektur</div>
                     <img
@@ -604,11 +593,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="rectangle-addfriend1">
-                  <a>
+                  <router-link to="">
                     <div class="addfriend-profile1"></div>
                     <div class="text-addfriend1">Belajar Bangunan</div>
                     <img
@@ -621,11 +610,11 @@
                       alt=""
                       class="plus-sign"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="text-ShowMore">
-                  <a href="">Show More</a>
+                  <router-link to="">Show More</router-link>
                 </div>
               </div>
             </div>
@@ -637,12 +626,12 @@
       <div class="bottom_nav">
         <div class="kosong"></div>
         <div class="home">
-          <a href="."><img src="./assets/Home.svg" alt="" /></a>
+          <router-link to="."><img src="./assets/Home.svg" alt="" /></router-link>
         </div>
         <div class="search">
-          <a href="../friends-page/index.html"
+          <router-link to="/friends"
             ><img src="./assets/Search.svg" alt=""
-          /></a>
+          /></router-link>
         </div>
         <div class="add-feeds">
           <router-link to="/feeds/add"
@@ -650,10 +639,10 @@
           /></router-link>
         </div>
         <div class="game">
-          <a href="#"><img src="./assets/Game.svg" alt="" /></a>
+          <router-link to="#"><img src="./assets/Game.svg" alt="" /></router-link>
         </div>
         <div class="community">
-          <a href="#"><img src="./assets/Community.svg" alt="" /></a>
+          <router-link to="#"><img src="./assets/Community.svg" alt="" /></router-link>
         </div>
       </div>
     </div>
