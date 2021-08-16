@@ -1,5 +1,4 @@
-const BASE_URL = "http://localhost/";
-const USER_DEFAULT_ICON = "http://localhost/milestone/static/default.png";
+import { BASE_URL, USER_DEFAULT_ICON } from "../constant";
 
 export default {
   namespaced: true,

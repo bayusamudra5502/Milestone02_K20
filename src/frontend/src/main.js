@@ -42,7 +42,6 @@ new Vue({
         });
 
         this.setUser({ token, data: profile });
-        console.dir(profile);
       }
     },
   },

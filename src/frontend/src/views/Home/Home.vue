@@ -13,7 +13,9 @@
           /></router-link>
         </div>
         <div class="chat-nav">
-          <router-link to="#"><img src="./assets/Chat.svg" alt="" /></router-link>
+          <router-link to="#"
+            ><img src="./assets/Chat.svg" alt=""
+          /></router-link>
         </div>
         <div class="profile-nav">
           <router-link to="/profile"
@@ -90,25 +92,37 @@
                 <div class="line-left"></div>
 
                 <div class="rectangle-Trend1">
-                  <router-link to="" class="text-Trends1">Badminton</router-link>
+                  <router-link to="" class="text-Trends1"
+                    >Badminton</router-link
+                  >
                 </div>
                 <div class="rectangle-Trend2">
-                  <router-link to="" class="text-Trends2">#AmbisUTBK</router-link>
+                  <router-link to="" class="text-Trends2"
+                    >#AmbisUTBK</router-link
+                  >
                 </div>
                 <div class="rectangle-Trend3">
-                  <router-link to="" class="text-Trends3">#AyoBersepeda</router-link>
+                  <router-link to="" class="text-Trends3"
+                    >#AyoBersepeda</router-link
+                  >
                 </div>
                 <div class="rectangle-Trend4">
-                  <router-link to="" class="text-Trends4">Fotografi Kini</router-link>
+                  <router-link to="" class="text-Trends4"
+                    >Fotografi Kini</router-link
+                  >
                 </div>
                 <div class="rectangle-Trend5">
-                  <router-link to="" class="text-Trends5">Genshin Impact</router-link>
+                  <router-link to="" class="text-Trends5"
+                    >Genshin Impact</router-link
+                  >
                 </div>
                 <div class="rectangle-Trend6">
                   <router-link to="" class="text-Trends6">#Killjoy</router-link>
                 </div>
                 <div class="rectangle-Trend7">
-                  <router-link to="" class="text-Trends7">Masak Hari Ini</router-link>
+                  <router-link to="" class="text-Trends7"
+                    >Masak Hari Ini</router-link
+                  >
                 </div>
                 <div class="rectangle-Trend8">
                   <router-link to="" class="text-Trends8">Sepatu</router-link>
@@ -122,499 +136,74 @@
             </div>
             <div class="feeds">
               <div class="photo_feed">
-                <div class="container">
+                <div class="container" v-for="post of posts" :key="post.id">
                   <div class="header">
                     <div class="rectangle-pp">
-                      <router-link to="/profile" class="link-pp"
-                        ><img src="./assets/User_PP.svg" alt="" class="user-pp"
+                      <router-link
+                        :to="`/profile/${post.username}`"
+                        class="link-pp"
+                        ><img
+                          :src="picture(post.profile.photo)"
+                          alt=""
+                          class="user-pp"
                       /></router-link>
                       <div class="name-user">
-                        <router-link to="/profile" class="link-pp"
-                          >Ziyad Ardiansyah</router-link>
-                        <router-link to="" class="add-text">• add</router-link>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="post_content">
-                    <img src="./assets/Post.svg" alt="" class="post-image" />
-                  </div>
-                  <div class="post_icon">
-                    <img src="./assets/Thumbs Up.svg" alt="" class="heart" />
-                    <img src="./assets/Comments.svg" alt="" class="comments" />
-                  </div>
-                  <div class="post-capt">
-                    <div class="capt-content">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi ea quis laborum non amet atque suscipit beatae
-                      incidunt deserunt, quia voluptatibus vero inventore in
-                      ipsum illum, fuga est nemo praesentium
-                    </div>
-                  </div>
-                  <div class="post_hour">
-                    <div class="hour-content">10h</div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="/profile"
-                      class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="" class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="/profile"
-                        class="link-commentator"
-                        >Calvin Samudera</router-link
-                      >
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="photo_feed">
-                <div class="container">
-                  <div class="header">
-                    <div class="rectangle-pp">
-                      <router-link to="/profile" class="link-pp"
-                        ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></router-link>
-                      <div class="name-user">
-                        <router-link to="/profile" class="link-pp"
-                          >Ziyad Ardiansyah</router-link
+                        <router-link
+                          :to="`/profile/${post.username}`"
+                          class="link-pp"
+                          >{{ post.profile.nama }}</router-link
                         >
-                        <router-link to="" class="add-text">• add</router-link>
                       </div>
                     </div>
                   </div>
                   <div class="post_content">
-                    <img src="./assets/Post.svg" alt="" class="post-image" />
+                    <img :src="post.media" alt="" class="post-image" />
                   </div>
                   <div class="post_icon">
                     <img src="./assets/Thumbs Up.svg" alt="" class="heart" />
-                    <img src="./assets/Comments.svg" alt="" class="comments" />
+                    <img
+                      src="./assets/Comments.svg"
+                      alt=""
+                      class="comments"
+                      @click="addComment(post.id)"
+                    />
                   </div>
                   <div class="post-capt">
                     <div class="capt-content">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi ea quis laborum non amet atque suscipit beatae
-                      incidunt deserunt, quia voluptatibus vero inventore in
-                      ipsum illum, fuga est nemo praesentium
+                      {{ post.posts }}
                     </div>
                   </div>
                   <div class="post_hour">
-                    <div class="hour-content">10h</div>
+                    <div class="hour-content">
+                      {{
+                        new Intl.DateTimeFormat("id-id", {
+                          dateStyle: "medium",
+                        }).format(new Date(post.timepublish))
+                      }}
+                    </div>
                   </div>
-                  <div class="commentator">
-                    <router-link to="/profile"
+                  <div
+                    class="commentator"
+                    v-for="comment of post.comments"
+                    :key="comment.id"
+                  >
+                    <router-link
+                      :to="`/profile/${comment.username}`"
                       class="link-commentator"
                       ><img
-                        src="./assets/commentator.svg"
+                        :src="picture(comment.profile.photo)"
                         alt=""
                         class="commentator-pp"
                     /></router-link>
                     <div class="commentator-name">
-                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
+                      <router-link :to="``" class="link-commentator">{{
+                        comment.profile.nama
+                      }}</router-link>
+                      <a href="" class="comment-text"
+                        >• {{ comment.comment }}</a
                       >
                     </div>
                   </div>
-                  <div class="commentator">
-                    <router-link to="" class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="/profile"
-                        class="link-commentator"
-                        >Calvin Samudera</router-link
-                      >
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="photo_feed">
-                <div class="container">
-                  <div class="header">
-                    <div class="rectangle-pp">
-                      <router-link to="/profile" class="link-pp"
-                        ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></router-link>
-                      <div class="name-user">
-                        <router-link to="/profile" class="link-pp"
-                          >Ziyad Ardiansyah</router-link
-                        >
-                        <router-link to="" class="add-text">• add</router-link>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="post_content">
-                    <img src="./assets/Post.svg" alt="" class="post-image" />
-                  </div>
-                  <div class="post_icon">
-                    <img src="./assets/Thumbs Up.svg" alt="" class="heart" />
-                    <img src="./assets/Comments.svg" alt="" class="comments" />
-                  </div>
-                  <div class="post-capt">
-                    <div class="capt-content">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi ea quis laborum non amet atque suscipit beatae
-                      incidunt deserunt, quia voluptatibus vero inventore in
-                      ipsum illum, fuga est nemo praesentium
-                    </div>
-                  </div>
-                  <div class="post_hour">
-                    <div class="hour-content">10h</div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="/profile"
-                      class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="" class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="/profile"
-                        class="link-commentator"
-                        >Calvin Samudera</router-link
-                      >
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="photo_feed">
-                <div class="container">
-                  <div class="header">
-                    <div class="rectangle-pp">
-                      <router-link to="/profile" class="link-pp"
-                        ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></router-link>
-                      <div class="name-user">
-                        <router-link to="/profile" class="link-pp"
-                          >Ziyad Ardiansyah</router-link
-                        >
-                        <router-link to="" class="add-text">• add</router-link>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="post_content">
-                    <img src="./assets/Post.svg" alt="" class="post-image" />
-                  </div>
-                  <div class="post_icon">
-                    <img src="./assets/Thumbs Up.svg" alt="" class="heart" />
-                    <img src="./assets/Comments.svg" alt="" class="comments" />
-                  </div>
-                  <div class="post-capt">
-                    <div class="capt-content">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi ea quis laborum non amet atque suscipit beatae
-                      incidunt deserunt, quia voluptatibus vero inventore in
-                      ipsum illum, fuga est nemo praesentium
-                    </div>
-                  </div>
-                  <div class="post_hour">
-                    <div class="hour-content">10h</div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="/profile"
-                      class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="" class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="/profile"
-                        class="link-commentator"
-                        >Calvin Samudera</router-link
-                      >
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="photo_feed">
-                <div class="container">
-                  <div class="header">
-                    <div class="rectangle-pp">
-                      <router-link to="/profile" class="link-pp"
-                        ><img src="./assets/User_PP.svg" alt="" class="user-pp"
-                      /></router-link>
-                      <div class="name-user">
-                        <router-link to="/profile" class="link-pp"
-                          >Ziyad Ardiansyah</router-link
-                        >
-                        <router-link to="" class="add-text">• add</router-link>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="post_content">
-                    <img src="./assets/Post.svg" alt="" class="post-image" />
-                  </div>
-                  <div class="post_icon">
-                    <img src="./assets/Thumbs Up.svg" alt="" class="heart" />
-                    <img src="./assets/Comments.svg" alt="" class="comments" />
-                  </div>
-                  <div class="post-capt">
-                    <div class="capt-content">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quasi ea quis laborum non amet atque suscipit beatae
-                      incidunt deserunt, quia voluptatibus vero inventore in
-                      ipsum illum, fuga est nemo praesentium
-                    </div>
-                  </div>
-                  <div class="post_hour">
-                    <div class="hour-content">10h</div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="/profile"
-                      class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="" class="link-commentator">Calvin Samudera</router-link>
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                  <div class="commentator">
-                    <router-link to="" class="link-commentator"
-                      ><img
-                        src="./assets/commentator.svg"
-                        alt=""
-                        class="commentator-pp"
-                    /></router-link>
-                    <div class="commentator-name">
-                      <router-link to="/profile"
-                        class="link-commentator"
-                        >Calvin Samudera</router-link
-                      >
-                      <router-link to="" class="comment-text"
-                        >• Ga ngajak-ngajak atuh meuni geuning euy ngajengkang
-                        tijalikeuh</router-link
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-right">
-            <div class="container">
-              <div class="rectangle-right">
-                <span class="text-recommended"> Recomended For You </span>
-                <div class="line-right"></div>
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Kristin Watson</div>
-                    <img
-                      src="./assets/profile friends.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Esther Howard</div>
-                    <img
-                      src="./assets/profile friends 2.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">LesLie Alexander</div>
-                    <img
-                      src="./assets/profile friends 3.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Dianne Russel</div>
-                    <img
-                      src="./assets/profile friends 4.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-                <div class="text-ShowMore">
-                  <router-link to>Show More</router-link>
-                </div>
-
-                <div class="text-community-right">Community</div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Pecinta Sepeda</div>
-                    <img
-                      src="./assets/profile community 1.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Pelihara kami yuk !</div>
-                    <img
-                      src="./assets/profile community 2.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Belajar Arsitektur</div>
-                    <img
-                      src="./assets/profile community 3.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="rectangle-addfriend1">
-                  <router-link to="">
-                    <div class="addfriend-profile1"></div>
-                    <div class="text-addfriend1">Belajar Bangunan</div>
-                    <img
-                      src="./assets/profile community 4.svg"
-                      class="img-fluid icon-addfriend1"
-                      alt="hi"
-                    />
-                    <img
-                      src="./assets/Plus Sign.svg"
-                      alt=""
-                      class="plus-sign"
-                    />
-                  </router-link>
-                </div>
-
-                <div class="text-ShowMore">
-                  <router-link to="">Show More</router-link>
                 </div>
               </div>
             </div>
@@ -626,7 +215,9 @@
       <div class="bottom_nav">
         <div class="kosong"></div>
         <div class="home">
-          <router-link to="."><img src="./assets/Home.svg" alt="" /></router-link>
+          <router-link to="."
+            ><img src="./assets/Home.svg" alt=""
+          /></router-link>
         </div>
         <div class="search">
           <router-link to="/friends"
@@ -639,10 +230,14 @@
           /></router-link>
         </div>
         <div class="game">
-          <router-link to="#"><img src="./assets/Game.svg" alt="" /></router-link>
+          <router-link to="#"
+            ><img src="./assets/Game.svg" alt=""
+          /></router-link>
         </div>
         <div class="community">
-          <router-link to="#"><img src="./assets/Community.svg" alt="" /></router-link>
+          <router-link to="#"
+            ><img src="./assets/Community.svg" alt=""
+          /></router-link>
         </div>
       </div>
     </div>
@@ -653,6 +248,7 @@
 import axios from "axios";
 import { API_URL } from "../../constant";
 import { mapGetters } from "vuex";
+import { BASE_URL, USER_DEFAULT_ICON } from "../../constant";
 
 export default {
   name: "Home",
@@ -664,6 +260,9 @@ export default {
     ...mapGetters({ username: "auth/username" }),
   },
   methods: {
+    picture(src) {
+      return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
+    },
     async getAllPost(page) {
       try {
         const { data } = await axios.get(`${API_URL}/feeds.php`, {
@@ -691,10 +290,23 @@ export default {
             },
           });
 
+          const profile = await this.getProfile(i.username);
+
+          const comments_parsed = [];
+
+          for (const j of comments.data ?? []) {
+            const profile = await this.getProfile(j.username);
+            comments_parsed.push({
+              ...j,
+              profile,
+            });
+          }
+
           posts.push({
             ...i,
-            comments: comments.data ?? [],
+            comments: comments_parsed,
             like: like.data ?? 0,
+            profile,
           });
         }
 
@@ -703,24 +315,44 @@ export default {
         console.dir(err);
       }
     },
-    async addLike(id) {
+    async getProfile(username) {
+      const {
+        data: {
+          data: [profile],
+        },
+      } = await axios.get(`${API_URL}/profile.php`, {
+        params: {
+          username,
+        },
+      });
+      return profile;
+    },
+    async addComment(id) {
+      const comment = prompt("Masukkan Komentar anda");
+      const payload = { id, comment, username: this.username };
+
       try {
-        await axios.post(
-          `${API_URL}/feeds.php`,
-          {
-            id,
-            username: this.username,
+        const { data } = await axios.post(`${API_URL}/feeds.php`, payload, {
+          params: {
+            action: "comment",
           },
-          {
-            params: {
-              action: "like",
-            },
-          }
-        );
+        });
+
+        if (data.status === "success") {
+          await this.getAllPost(this.page);
+        } else {
+          console.dir(data);
+          alert("Gagal menambah komentar");
+        }
       } catch (err) {
         console.dir(err);
+        alert("Gagal menambah komentar");
       }
     },
+  },
+  async created() {
+    await this.getAllPost(this.page);
+    console.dir(this.posts);
   },
 };
 </script>
