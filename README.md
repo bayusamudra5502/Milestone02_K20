@@ -2,6 +2,8 @@
 
 <img src="src/md-assets/Dekatin.svg" alt="Favicon" align="center" />
 
+Sebuah Aplikasi web untuk mencari teman sefrekuensi :D
+
 ## Dibuat oleh
 
 Kelompok 12 <br/>
