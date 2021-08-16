@@ -146,7 +146,7 @@
               />
             </div>
             <div class="image-container">
-              <img src="./assets/foto profile.svg" class="foto-profile" />
+              <img :src="picture(profile.photo)" class="foto-profile" />
             </div>
             <div class="rectangle-nama">
               <div class="text-nama" v-if="profile.nama">
@@ -407,7 +407,7 @@ export default {
   computed: {
     ...mapGetters({ username: "auth/username" }),
   },
-  method: {
+  methods: {
     picture(src) {
       return src ? `${BASE_URL}${src}` : USER_DEFAULT_ICON;
     },
@@ -601,6 +601,7 @@ export default {
 .foto-profile {
   position: static;
   margin-top: -75px;
+  width: 100px;
 }
 
 .edit {
