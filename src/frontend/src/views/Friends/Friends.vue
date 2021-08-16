@@ -314,7 +314,7 @@ export default {
     },
     async addFriend(username) {
       if (confirm("Apakah anda yakin akan menambahkannya sebagai teman?")) {
-        await axios.post(
+        const { data } = await axios.post(
           `${API_URL}/friends.php`,
           {
             username,
@@ -325,6 +325,8 @@ export default {
             },
           }
         );
+
+        console.dir(data);
       }
     },
   },

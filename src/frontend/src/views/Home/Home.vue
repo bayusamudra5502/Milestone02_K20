@@ -245,7 +245,7 @@
                   <img src="./assets/Plus Sign.svg" alt="" class="plus-sign" />
                 </div>
                 <div class="text-ShowMore">
-                  <router-link>Show More</router-link>
+                  <a>Show More</a>
                 </div>
 
                 <div class="text-community-right">Community</div>

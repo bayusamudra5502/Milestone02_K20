@@ -59,7 +59,7 @@ function get_feeds($username, $page)
   /**
    * Menghasilkan 5 feeds yang terbaru dari username
    */
-  $queue = "SELECT tb_posts.* FROM tb_posts, tb_friends WHERE (tb_friends.userfriend = tb_posts.username AND tb_friends.username='".$username."') OR tb_posts.username = '$username' ORDER BY tb_posts.timepublish DESC";
+  $queue = "SELECT tb_posts.* FROM tb_posts, tb_friends WHERE tb_friends.userfriend = tb_posts.username AND tb_friends.username='$username' UNION SELECT * FROM tb_posts WHERE username = '$username' ORDER BY timepublish DESC;";
   $query = run_query($queue);
 
   return array($query);
