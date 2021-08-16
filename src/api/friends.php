@@ -30,20 +30,58 @@ function add_friend($username, $friend_username)
    * Fungsi ini akan menjadikan $friends_username merupakan teman dari $username.
    * Prosesnya cukup tambahkan data pada tb_friends dengan kolom username bernilai
    * $username dan kolom userfriend adalah $friend_username
-   * 
+   *
    * Kembalikan nilai True bila proses berhasil. Bila gagal keluarkan false
    */
 }
 
-function friend_recomendations($username,$page)
-{   
-    $kesukaan = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
-    $friends_recomendation = run_query("SELECT userfriend FROM tb_friends WHERE interest = '$kesukaan' AND username = '$username' ORDERS LIMIT 5 OFFSET '$page'");
+function friend_recomendations($username)
+{
+    $user_interest_raw = run_query("SELECT interest FROM tb_accounts WHERE username = '$username'");
+    $user_interest = $user_interest_raw[0]['interest'];
+
+    $user_friends_raw = run_query("SELECT userfriend FROM tb_friends WHERE username = '$username'");
+
+    $user_friends = [];
+    foreach ($user_friends_raw as $friend) {
+      array_push($user_friends, $friend['userfriend']);
+    }
+
+    $total_friends_needed = 5;
+    $friends_recomendation = [];
+
+    $users = run_query("SELECT username, interest FROM tb_accounts EXCEPT
+    SELECT username, interest FROM tb_accounts WHERE username='$username'");
+
+    foreach ($users as $user) {
+      if (!(in_array($user['username'], $user_friends))
+          && $user['interest'] == $user_interest) {
+        array_push($friends_recomendation, $user['username']);
+        if (count($friends_recomendation) >= $total_friends_needed) {
+          break;
+        }
+      }
+    }
+
+    if (count($friends_recomendation) < $total_friends_needed) {
+      foreach ($users as $user) {
+        if (!(in_array($user['username'], $user_friends))
+            && !(in_array($user['username'], $friends_recomendation))) {
+              array_push($friends_recomendation, $user['username']);
+              if (count($friends_recomendation) >= $total_friends_needed) {
+                break;
+              }
+            }
+      }
+    }
+
     return $friends_recomendation;
+
+    // return format array of string. Ex: ["bayu", "bayusam"]
   /**
    * Memberikan daftar rekomendasi teman. Prioritaskan orang-orang yang memiliki
    * minat yang sama.
-   * 
+   *
    * Keluarkan hanya maksimal 5 username pada fungsi ini. Gunakan $page untuk mengatue
    * offset pada database
    */
