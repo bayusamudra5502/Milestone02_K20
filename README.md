@@ -42,6 +42,9 @@ Web App
 8. Jalankan `npm start` untuk memulai frontend.
 9. Selamat Menikmati :D
 
+## Deployment
+Bisa dilihat di : [https://dekatin.bayusamudra.my.id/](https://dekatin.bayusamudra.my.id/)
+
 ## Cara Memakai Aplikasi
 
 Setelah web dibuka, user harus register terlebih dahulu. Setelah berhasil melakukan register, user harus login. Di bagian homepage, akan ditampilkan feeds dari teman. User juga dapat menge-post feeds melalui menu add feeds. User dapat mengubah profile-nya melalui menu edit profile. Untuk fitur Friends, ada menu add friends dan get recommended friends. Akan ditampilkan orang-orang yang telah menjadi teman dan juga kita dapat menemukan teman yang memiliki interest yang sama dengan kita. Untuk keluar dari web, klik logout.
